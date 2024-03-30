@@ -10,10 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
-<<<<<<< HEAD
 from datetime import timedelta
-=======
->>>>>>> origin/dev1
 from pathlib import Path
 
 import environ
