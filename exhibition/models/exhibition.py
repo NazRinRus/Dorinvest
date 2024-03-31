@@ -13,3 +13,6 @@ class Exhibition(models.Model):
         verbose_name = 'Выставка'
         verbose_name_plural = 'Выставки'
         ordering = ('date', 'name',)
+
+    def __str__(self):
+        return f'{self.name} ({self.pk}) {self.date}'
