@@ -11,8 +11,8 @@ class ParticipantAdmin(admin.ModelAdmin):
 
 @admin.register(participant.TypeParticipant)
 class ParticipantTypeAdmin(admin.ModelAdmin):
-    list_display = ('code', 'name', 'color', 'sort', 'is_active',)
+    list_display = ('code', 'name', 'sort', 'is_active',)
 
 @admin.register(participant.BreedParticipant)
 class ParticipantBreedAdmin(admin.ModelAdmin):
-    list_display = ('code', 'name', 'color', 'sort', 'is_active',)
+    list_display = ('code', 'name', 'sort', 'is_active',)
