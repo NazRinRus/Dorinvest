@@ -57,6 +57,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'api',
     'common',
+    'exhibition',
 ]
 
 # drf_spectacular apps
