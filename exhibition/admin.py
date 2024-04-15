@@ -1,9 +1,24 @@
 from django.contrib import admin
+from django.contrib.admin import TabularInline
+
 from exhibition.models import exhibition, participant, partner
 
+
+##################################################
+##### INLINES ####################################
+##################################################
+class ExhibitionFotoInline(TabularInline):
+    model = exhibition.Foto
+    fields = ('foto',)
+
+##################################################
+##### MODELS #####################################
+##################################################
 @admin.register(exhibition.Exhibition)
 class ExhibitionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'bunner', 'date', 'location',)
+    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'location',)
+
+    inlines = (ExhibitionFotoInline,)
 
 @admin.register(exhibition.Foto)
 class ExhibitionFotoAdmin(admin.ModelAdmin):

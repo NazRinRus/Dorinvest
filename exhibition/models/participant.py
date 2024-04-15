@@ -43,9 +43,7 @@ class Participant(models.Model):
     breed = models.ForeignKey(
         'BreedParticipant', models.RESTRICT, 'participant_breed', verbose_name='Порода'
     )
-    avatar_id = models.ForeignKey(
-        'Avatar', models.CASCADE, 'avatar_participant', verbose_name='Фотографии'
-    )
+    avatar_id = models.CharField("Аватар", max_length=255, null=False)
 
     class Meta:
         verbose_name = 'Участник'
@@ -58,10 +56,12 @@ class Participant(models.Model):
 class Avatar(models.Model):
     foto = models.CharField("Фотография", max_length=255, null=False)
     description = models.CharField("Описание фотографии", max_length=255, null=True)
-
+    participant_id = models.ForeignKey(
+        Participant, models.PROTECT, 'participant_foto', verbose_name='ID участника'
+    )
     class Meta:
-        verbose_name = 'Фотография'
-        verbose_name_plural = 'Фотографии'
-
+        verbose_name = 'Фотография участника'
+        verbose_name_plural = 'Фотографии участника'
+        ordering = ('participant_id',)
     def __str__(self):
-        return f'{self.description} ({self.pk})'
+        return f'{self.participant_id} {self.description} ({self.pk})'
