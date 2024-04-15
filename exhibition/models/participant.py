@@ -1,8 +1,7 @@
-from django.contrib.auth import get_user_model
 from django.db import models
 
-User = get_user_model()
-
+def get_image_path(instance, file): # прописываю путь сохранения изображений, у каждого участника Participant своя папка
+    return f'static/photos/participant-{Participant.objects.last().id}/{file}'
 
 class TypeParticipant(models.Model):
     code = models.CharField('Код', max_length=3, primary_key=True)
@@ -43,7 +42,7 @@ class Participant(models.Model):
     breed = models.ForeignKey(
         'BreedParticipant', models.RESTRICT, 'participant_breed', verbose_name='Порода'
     )
-    avatar_id = models.CharField("Аватар", max_length=255, null=False)
+    avatar_id = models.ImageField("Аватар", upload_to=get_image_path, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Участник'
@@ -54,7 +53,7 @@ class Participant(models.Model):
         return f'{self.name} ({self.pk})'
 
 class Avatar(models.Model):
-    foto = models.CharField("Фотография", max_length=255, null=False)
+    foto = models.ImageField("Фотография", upload_to=get_image_path, blank=True, null=True)
     description = models.CharField("Описание фотографии", max_length=255, null=True)
     participant_id = models.ForeignKey(
         Participant, models.PROTECT, 'participant_foto', verbose_name='ID участника'

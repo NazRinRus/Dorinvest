@@ -178,6 +178,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',),
 
+
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
     ],
@@ -197,14 +198,14 @@ REST_FRAMEWORK = {
 ########################################
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Dorinvest API',
-        'DESCRIPTION': 'Your project description',
+        'DESCRIPTION': 'Dorinvest',
     'VERSION': '1.0.0',
 
     'SERVE_PERMISSIONS': [
         'rest_framework.permissions.IsAuthenticated'],
 
     'SERVE_AUTHENTICATION': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+ #       'rest_framework_simplejwt.authentication.JWTAuthentication', закоментировал, чтобы была возможность пользоваться документацией по логину и паролю
         'rest_framework.authentication.BasicAuthentication',
     ],
 

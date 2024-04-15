@@ -1,10 +1,12 @@
 from django.db import models
 from exhibition.models import participant, partner
 
+def get_image_path(instance, file): # прописываю путь сохранения изображений, у каждой выставки Exhibition своя папка
+    return f'static/photos/exhibition-{Exhibition.objects.last().id}/{file}'
 
 class Exhibition(models.Model):
     name = models.CharField("Название выставки", max_length=30, null=True)
-    bunner = models.CharField("Изображение баннера", max_length=255, null=False)
+    bunner = models.ImageField("Баннер", upload_to=get_image_path, blank=True, null=True)
     date_begin = models.DateTimeField("Дата начала выставки")
     date_end = models.DateTimeField("Дата окончания выставки")
     location = models.CharField("Место проведения", max_length=30, null=False)
@@ -24,7 +26,7 @@ class Exhibition(models.Model):
         return f'{self.name} ({self.pk}) {self.date_begin}'
 
 class Foto(models.Model):
-    foto = models.CharField("Фотография", max_length=255, null=False)
+    foto = models.ImageField("Фотография", upload_to=get_image_path, blank=True, null=True)
     description = models.CharField("Описание фотографии", max_length=255, null=True)
     exhibition_id = models.ForeignKey(
         Exhibition, models.PROTECT, 'exhibition_foto', verbose_name='ID выставки'
