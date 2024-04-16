@@ -2,7 +2,7 @@ from django.db import models
 from exhibition.models import participant, partner
 
 def get_image_path(instance, file): # прописываю путь сохранения изображений, у каждой выставки Exhibition своя папка
-    return f'static/photos/exhibition-{Exhibition.objects.last().id}/{file}'
+    return f'static/photos/exhibition-{Exhibition.objects.count()+1}/{file}'
 
 class Exhibition(models.Model):
     name = models.CharField("Название выставки", max_length=30, null=True)
@@ -20,7 +20,7 @@ class Exhibition(models.Model):
     class Meta:
         verbose_name = 'Выставка'
         verbose_name_plural = 'Выставки'
-        ordering = ('date_begin', 'name',)
+        ordering = ('-date_begin', 'name',)
 
     def __str__(self):
         return f'{self.name} ({self.pk}) {self.date_begin}'

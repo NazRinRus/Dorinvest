@@ -5,10 +5,10 @@ from exhibition.views import exhibition
 
 router = DefaultRouter()
 
-router.register(r'fotoexhibition', exhibition.FotoExhibitionViewSet, 'foto-exhibition')
+router.register(r'foto', exhibition.FotoExhibitionViewSet, 'foto-exhibition')
 
 urlpatterns = [
-    path('exhibitionfoto/', exhibition.FotoExhibitionViewSet.as_view(), name='exhibition-foto'),
-
+    path('exhibition/', exhibition.ExhibitionAPIList.as_view(), name='exhibitions'),
+    path('exhibition/<int:pk>/', exhibition.ExhibitionAPIRetrieve.as_view(), name='exhibition'),
     path('exhibition/', include(router.urls)),
 ]
