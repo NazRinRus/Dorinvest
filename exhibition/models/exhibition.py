@@ -14,7 +14,7 @@ class Exhibition(models.Model):
         participant.Participant, 'exhibition_participant', blank=True, through='ExhibitionParticipant'
     )
     partners = models.ManyToManyField(
-        partner.Partner, 'exhibition_partner', blank=True
+        partner.Partner, 'exhibition_partner', blank=True, through='ExhibitionPartner'
     )
 
     class Meta:
@@ -53,7 +53,7 @@ class ExhibitionParticipant(models.Model):
         ordering = ('-exhibition_id', 'participant_id',)
 
     def __str__(self):
-        return f'({self.pk}) {self.exhibition_id__date_begin} {self.exhibition_id__name} {self.participant_id__name}'
+        return f'({self.pk}) {self.exhibition_id}'
 
 class ExhibitionPartner(models.Model):
     exhibition_id = models.ForeignKey(
@@ -69,4 +69,4 @@ class ExhibitionPartner(models.Model):
         ordering = ('-exhibition_id', 'partner_id',)
 
     def __str__(self):
-        return f'({self.pk}) {self.exhibition_id__date_begin} {self.exhibition_id__name} {self.partner_id__name}'
+        return f'({self.pk}) {self.exhibition_id}'

@@ -1,7 +1,7 @@
 from django.db import models
 
 def get_image_path(instance, file): # прописываю путь сохранения изображений, у каждого участника Participant своя папка
-    return f'static/photos/participant-{Participant.objects.last().id}/{file}'
+    return f'static/photos/participant-{Participant.objects.count()+1}/{file}'
 
 class TypeParticipant(models.Model):
     code = models.CharField('Код', max_length=3, primary_key=True)

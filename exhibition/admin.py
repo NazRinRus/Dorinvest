@@ -11,14 +11,22 @@ class ExhibitionFotoInline(TabularInline):
     model = exhibition.Foto
     fields = ('foto',)
 
+class PartnersInline(TabularInline):
+    model = exhibition.ExhibitionPartner
+    fields = ('partner_id',)
+
+class ParticipantInline(TabularInline):
+    model = exhibition.ExhibitionParticipant
+    fields = ('participant_id',)
+
 ##################################################
 ##### MODELS #####################################
 ##################################################
 @admin.register(exhibition.Exhibition)
 class ExhibitionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'location',)
+    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'location', )
 
-    inlines = (ExhibitionFotoInline,)
+    inlines = (ExhibitionFotoInline, PartnersInline, ParticipantInline)
 
 @admin.register(exhibition.Foto)
 class ExhibitionFotoAdmin(admin.ModelAdmin):
