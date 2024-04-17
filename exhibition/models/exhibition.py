@@ -74,7 +74,7 @@ class ExhibitionParticipant(models.Model):
         ordering = ('-exhibition_id', 'participant_id',)
 
     def __str__(self):
-        return f'({self.pk}) {self.exhibition_id__date_begin} {self.exhibition_id__name} {self.participant_id__name}'
+        return f'({self.pk}) {self.exhibition_id}'
 
 
 class ExhibitionPartner(models.Model):
@@ -91,7 +91,7 @@ class ExhibitionPartner(models.Model):
         ordering = ('-exhibition_id', 'partner_id',)
 
     def __str__(self):
-        return f'({self.pk}) {self.exhibition_id__date_begin} {self.exhibition_id__name} {self.partner_id__name}'
+        return f'({self.pk}) {self.exhibition_id}'
 
 
 class FAQ(models.Model):
@@ -103,6 +103,9 @@ class FAQ(models.Model):
         verbose_name = "Часто задаваемые вопросы"
         verbose_name_plural = "Часто задаваемые вопросы"
 
+    def __str__(self):
+        return f'{self.question}'
+
 
 class Feedback(models.Model):
     """Модель заявки на дистанционное приобретение питомца."""
@@ -112,7 +115,7 @@ class Feedback(models.Model):
     participant = models.CharField(max_length=100, null=True, verbose_name="Данные питомца, которого хотят взять")
 
     def __str__(self):
-        return f"{self.name}_{self.email}"
+        return f"({self.name}) ({self.email})"
 
     class Meta:
         verbose_name = "Заявка на приобретение питомца"
