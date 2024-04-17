@@ -1,0 +1,45 @@
+from django.contrib import admin
+from django.contrib.admin import TabularInline
+
+from exhibition.models import exhibition, participant, partner
+
+
+##################################################
+##### INLINES ####################################
+##################################################
+class ExhibitionFotoInline(TabularInline):
+    model = exhibition.Foto
+    fields = ('foto',)
+
+##################################################
+##### MODELS #####################################
+##################################################
+@admin.register(exhibition.Exhibition)
+class ExhibitionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'location',)
+
+    inlines = (ExhibitionFotoInline,)
+
+@admin.register(exhibition.Foto)
+class ExhibitionFotoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'foto', 'description',)
+
+@admin.register(participant.Participant)
+class ParticipantAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'color', 'other', 'type_p', 'breed', 'avatar_id',)
+
+@admin.register(participant.TypeParticipant)
+class ParticipantTypeAdmin(admin.ModelAdmin):
+    list_display = ('code', 'name', 'sort', 'is_active',)
+
+@admin.register(participant.BreedParticipant)
+class ParticipantBreedAdmin(admin.ModelAdmin):
+    list_display = ('code', 'name', 'sort', 'is_active',)
+
+@admin.register(participant.Avatar)
+class ParticipantBreedAdmin(admin.ModelAdmin):
+    list_display = ('id', 'foto', 'description',)
+
+@admin.register(partner.Partner)
+class PartnerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'logo', 'info', 'website',)
