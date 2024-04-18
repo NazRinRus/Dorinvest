@@ -1,8 +1,13 @@
 from django.db import models
 
 
-def get_image_path(instance, file): # прописываю путь сохранения изображений, у каждого партнера Partner своя папка
-    return f'static/photos/partner-{Partner.objects.last().id}/{file}'
+def get_image_path(instance, file):  # прописываю путь сохранения изображений, у каждого партнера Partner своя папка
+    last_partner = Partner.objects.last()
+    if last_partner is not None:
+        return f'static/photos/partner-{last_partner.id}/{file}'
+    else:
+        # Обработка случая, когда последний партнер не найден
+        return f'static/photos/partner-0/{file}'
 
 
 class Partner(models.Model):

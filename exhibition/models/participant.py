@@ -3,7 +3,12 @@ from django.db import models
 
 def get_image_path(instance,
                    file):  # прописываю путь сохранения изображений, у каждого участника Participant своя папка
-    return f'static/photos/participant-{Participant.objects.last().id}/{file}'
+    last_participant = Participant.objects.last()
+    if last_participant is not None:
+        return f'static/photos/participant-{last_participant.id}/{file}'
+    else:
+        # Обработка случая, когда последний участник не найден
+        return f'static/photos/participant-0/{file}'
 
 
 class TypeParticipant(models.Model):
