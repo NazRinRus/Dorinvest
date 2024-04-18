@@ -14,5 +14,6 @@ urlpatterns = [
     path('exhibition/now/', exhibition.ExhibitionNowAPIRetrieve.as_view({'get': 'list'}), name='now-exhibition'),
     path('exhibition/previous/', exhibition.ExhibitionPreviousAPIView.as_view({'get': 'list'}), name='prev-exhibition'),
     path('faq/', exhibition.FAQAPIList.as_view(), name='faq'),
+    path('feedback/',  exhibition.FeedbackAPIView.as_view({'get': 'list', 'post': 'create'}), name='feedback'),
     path('exhibition/', include(router.urls)),
 ]

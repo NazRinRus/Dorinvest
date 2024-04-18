@@ -4,9 +4,13 @@ from drf_spectacular.utils import extend_schema_view, extend_schema
 from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
+from rest_framework import status
+from rest_framework.response import Response
+from exhibition.service import send_message
 
-from exhibition.serializers.api.exhibition import FotoExhibitionSerializer, ExhibitionSerializer, FAQSerializer
-from exhibition.models.exhibition import Foto, Exhibition, FAQ
+from exhibition.serializers.api.exhibition import FotoExhibitionSerializer, ExhibitionSerializer, FAQSerializer, \
+    FeedbackSerializer
+from exhibition.models.exhibition import Foto, Exhibition, FAQ, Feedback
 
 
 class FotoExhibitionViewSet(viewsets.ModelViewSet):
@@ -78,3 +82,34 @@ class FAQAPIList(generics.ListAPIView):
     queryset = FAQ.objects.all()
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = "__all__"
+
+
+@extend_schema_view(
+    get=extend_schema(summary='Заявки на приобретение питомца', tags=['Заявки'])
+)
+class FeedbackAPIView(viewsets.ModelViewSet):
+    """API для создания заявки на получение питомца и отправки её на почту."""
+    queryset = Feedback.objects.all()  # добавляем queryset
+    serializer_class = FeedbackSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = FeedbackSerializer(data=request.data)
+        if serializer.is_valid():
+            name = serializer.validated_data.get('name')
+            phone = serializer.validated_data.get('phone')
+            email = serializer.validated_data.get('email')
+            participant = serializer.validated_data.get('participant')
+
+            feedback = Feedback(name=name, phone=phone, participant=participant, email=email)
+            feedback.save()
+            db = {
+                'name': name,
+                'phone': phone,
+                'participant': participant,
+                'email': email,
+            }
+            send_message(db=db)
+
+            return Response({'message': 'Feedback created successfully'}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

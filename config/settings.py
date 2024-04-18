@@ -22,7 +22,6 @@ environ.Env.read_env(env.str(root(), '.env'))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = root()
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -33,7 +32,6 @@ SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = env.str('ALLOWED_HOSTS', default='').split(' ')
-
 
 # Application definition
 
@@ -81,7 +79,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,7 +93,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -115,7 +112,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -134,7 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -145,7 +140,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -178,7 +172,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',),
 
-
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
     ],
@@ -198,14 +191,14 @@ REST_FRAMEWORK = {
 ########################################
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Dorinvest API',
-        'DESCRIPTION': 'Dorinvest',
+    'DESCRIPTION': 'Dorinvest',
     'VERSION': '1.0.0',
 
     'SERVE_PERMISSIONS': [
         'rest_framework.permissions.IsAuthenticated'],
 
     'SERVE_AUTHENTICATION': [
- #       'rest_framework_simplejwt.authentication.JWTAuthentication', закоментировал, чтобы была возможность пользоваться документацией по логину и паролю
+        #       'rest_framework_simplejwt.authentication.JWTAuthentication', закоментировал, чтобы была возможность пользоваться документацией по логину и паролю
         'rest_framework.authentication.BasicAuthentication',
     ],
 
@@ -253,3 +246,15 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=7),
 }
+
+########################################
+# EMAIL ################################
+########################################
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', default=' ')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default=' ')
+EMAIL_PORT = env.int('EMAIL_PORT', default=2525)
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+WORKER_LIST = ['user@mail.ru', ]  # Список с почтами сотрудников куда будут приходить заявки на получение питомцев

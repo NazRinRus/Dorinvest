@@ -1,0 +1,276 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Выставка
+{% endblock title %}
+
+{% block content %}
+<!--Test-->
+
+	<main>
+		<section class="hero">
+			<span class="hero__background_span">Забери меня домой!</span>
+			<img class="hero__background" src="{% static 'images/banner-2.png' %}" alt="" loading="lazy">
+			<div class="hero__container">
+				<div class="hero__top">
+					<div class="hero__info">
+						<h1 class="hero__info__title">Ищу друга!</h1>
+						<p class="hero__info__description">Большая выставка кошек и собак</p>
+					</div>
+					<div class="hero__date">
+						<div class="hero__date__date">
+							<p ><span class="hero__date__days">6-8</span> <span class="hero__date__month">мая</span></p>
+							<p class="hero__date__time">с 12:00 до 20:00</p>
+						</div>
+
+					</div>
+				</div>
+				<p class="hero__place">г. Москва,<br>ул. 2-я Тверская-Ямская, д.2</p>
+			</div>
+			<a href="#request" class="hero__button button"><span class="hero__button__hashtag">#</span>Найти друга</a>
+		</section>
+
+		<section class="about">
+			<div class="about__image">
+				<img src="{% static 'images/about-img.jpg' %}" alt="" loading="lazy">
+				<span>У тебя такие нежные ручки!</span>
+			</div>
+			<div class="about__description">
+				<h2 class="about__description__title title">О выставке</h2>
+				<p class="about__description__text">При поддержке ГБУ «Доринвест» мы рады пригласить вас на выставку животных,  которая проводится с целью пристройства наших пушистых друзей в заботливые дома.
+
+					Мы гордимся нашими приютами,где животным предоставляются комфортные условия, проходят ветеринарный уход<br> и получают все необходимые прививки и процедуры. </p>
+			</div>
+		</section>
+
+		<section class="participants">
+			<h2 class="participants__title title">Участники</h2>
+			<div class="participants__gallery">
+				<div class="participants__gallery__item participants__gallery__item-1">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-2">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-3">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-4">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-5">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-6">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-7">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-8">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<div class="participants__gallery__item participants__gallery__item-9">
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</div>
+				<a class="participants__button card__button" href="{%url 'participants'%}" target="_blank">#Посмотреть всех участников</a>
+			</div>
+		</section>
+
+		<section class="past">
+			<h2 class="past__title title">Прошлые выставки</h2>
+			<div class="past__gallery">
+				<a href="" class="past__gallery__item past__gallery__item-1">
+					<div class="item__description item__description_main">
+						<p class="item__description__date item__description__date_main">9 марта</p>
+						<p class="item__description__place item__description__place_main">КЦ Зеленоград</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a href="" class="past__gallery__item past__gallery__item-2">
+					<div class="item__description">
+						<p class="item__description__date">9 марта</p>
+						<p class="item__description__place">КЦ Зеленоград</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a href="" class="past__gallery__item past__gallery__item-3">
+					<div class="item__description">
+						<p class="item__description__date">9 марта</p>
+						<p class="item__description__place">КЦ Зеленоград</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a href="" class="past__gallery__item past__gallery__item-4">
+					<div class="item__description">
+						<p class="item__description__date">19 августа</p>
+						<p class="item__description__place">МУФ</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a href="" class="past__gallery__item past__gallery__item-5">
+					<div class="item__description">
+						<p class="item__description__date">9 марта</p>
+						<p class="item__description__place">КЦ Зеленоград</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a href="" class="past__gallery__item past__gallery__item-6">
+					<div class="item__description">
+						<p class="item__description__date">9 марта</p>
+						<p class="item__description__place">КЦ Зеленоград</p>
+					</div>
+					<img src="{% static 'images/plug.jpg' %}" alt="">
+				</a>
+				<a class="past__button card__button" href="{%url 'exhibitions'%}" target="_blank">#Посмотреть все фото</a>
+			</div>
+		</section>
+
+		<section class="statistics">
+			<div class="statistics__description">
+				<h2 class="statistics__description__title">Работниками приютов отдано в добрые руки</h2>
+				<div class="statistics__cats">
+					<span class="cats__number">192</span>
+					<span class="cats__title">кошки</span>
+				</div>
+				<div class="statistics__dogs">
+					<span class="dogs__number">72</span>
+					<span class="dogs__title">собаки</span>
+				</div>
+			</div>
+			<div class="statistics__image">
+				<img src="{% static 'images/stat-img.jpg' %}" alt="" loading="lazy">
+				<span>Как я об этом мечтал!</span>
+			</div>
+
+		</section>
+<!--Application-->
+{% include 'flatpages/application.html' %}
+<!--Useful Info-->
+		<section class="adviсe">
+			<h2 class="adviсe__title title">Полезная информация</h2>
+			<div class="swiper__container">
+				<div class="swiper-button-prev swiper-nav-button"></div>
+				<div class="swiper swiper-adviсe">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Виды наполнителей для туалетов домашних питомцев</div>
+									<img src="{% static 'images/plug_square.jpg' %}" alt="" loading="lazy">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Прививки собакам и кошкам</div>
+									<img src="{% static 'images/plug_square.jpg' %}" alt="" loading="lazy">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Как правильно организовать кормление кошки?</div>
+									<img src="{% static 'images/plug_square.jpg' %}" alt="" loading="lazy">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Как сохранить обои целыми</div>
+									<img src="{% static 'images/plug_square.jpg' %}" alt="" loading="lazy">
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-next swiper-nav-button"></div>
+			</div>
+		</section>
+<!--FAQ-->
+		<section class="question">
+			<h2 class="question__title title">Часто задаваемые вопросы</h2>
+
+			<div class="accordion-container">
+				<div class="ac">
+					<h2 class="ac-header">
+						<button type="button" class="ac-trigger">Я хочу взять животное с выставки. Как это сделать?</button>
+					</h2>
+					<div class="ac-panel">
+						<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+
+				<div class="ac">
+					<h2 class="ac-header">
+						<button type="button" class="ac-trigger">Могу ли я выбрать животное по фотографии или нужно приехать?</button>
+					</h2>
+					<div class="ac-panel">
+						<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+
+				<div class="ac">
+					<h2 class="ac-header">
+						<button type="button" class="ac-trigger">Я хочу взять животное с выставки. Как это сделать?</button>
+					</h2>
+					<div class="ac-panel">
+						<p class="ac-text">Не торопитесь и не принимайте решение наспех. Рассмотрите несколько вариантов животных, задавая важные вопросы и подбирая себе подходящего питомца. Заключите соглашение и пройдите процедуры: После выбора животного, заключите сделку с заводчиком. Убедитесь, что вы получили всю необходимую документацию, связанную с животным (контракт, ветеринарные справки, паспорт).</p>
+					</div>
+				</div>
+
+				<div class="ac">
+					<h2 class="ac-header">
+						<button type="button" class="ac-trigger">В каких городах проводится выставка?</button>
+					</h2>
+					<div class="ac-panel">
+						<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+
+			<img class="question__decor" src="{% static 'images/icons/accordeon-decor.svg' %}" alt="">
+		</section>
+<!--Partners-->
+			<section class="partners">
+					<h2 class="partners__title title">Партнеры выставки</h2>
+					<div class="partners__swiper__container">
+						<div class="swiper swiper-partners">
+							<div class="swiper-wrapper partners__swiper-wrapper">
+								<div class="swiper-slide partners__swiper-slide ">
+									<a href="">
+										<div class="slide__content partners__slide__content ">
+											<img src="{% static 'images/image 24.svg' %}" alt="" loading="lazy">
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide partners__swiper-slide">
+									<a href="">
+										<div class="slide__content partners__slide__content">
+											<img src="{% static 'images/image 26.svg' %}" alt="">
+										</div>
+									</a>
+								</div>
+								<div class="swiper-slide partners__swiper-slide">
+									<a href="">
+										<div class="slide__content partners__slide__content">
+											<img src="{% static 'images/image 27.svg' %}" alt="">
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+				</div>
+			</section>
+	</main>
+    <script  src="{% static 'js/req.js' %}"></script>
+{% endblock content %}

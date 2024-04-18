@@ -60,3 +60,9 @@ class FAQSerializer(serializers.ModelSerializer):
             "question",
             "answer",
         )
+
+
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = exhibition.Feedback
+        fields = "__all__"
