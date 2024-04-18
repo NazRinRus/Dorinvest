@@ -1,0 +1,54 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Фотоотчёт
+{% endblock title %}
+
+{% block content %}
+	<main class="main">
+
+		<div class="main__navbar">
+			<a href="{%url 'exhibitions'%}">Прошлые выставки</a>
+		</div>
+
+		<section class="photos">
+			<h1 class="photos__title">9-10 марта Выставка КЦ Зеленоград</h1>
+			<div class="photos__container">
+
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+				<div class="photo">
+					<img src="../images/plug.jpg" alt="">
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script  src="{% static 'dist/main.js' %}"></script>
+{% endblock content %}

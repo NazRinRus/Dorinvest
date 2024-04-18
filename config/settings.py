@@ -148,9 +148,16 @@ USE_TZ = True
 # STATIC AND MEDIA #####################
 ########################################
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+########################################
+# STATICFILES_DIRS #####################
+########################################
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -257,4 +264,6 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default=' ')
 EMAIL_PORT = env.int('EMAIL_PORT', default=2525)
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-WORKER_LIST = ['user@mail.ru', ]  # Список с почтами сотрудников куда будут приходить заявки на получение питомцев
+WORKER_LIST = [
+    EMAIL_HOST_USER,
+]  # Список с почтами сотрудников куда будут приходить письма-заявки на получение питомцев

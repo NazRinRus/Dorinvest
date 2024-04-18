@@ -17,3 +17,5 @@ urlpatterns = [
     path('feedback/',  exhibition.FeedbackAPIView.as_view({'get': 'list', 'post': 'create'}), name='feedback'),
     path('exhibition/', include(router.urls)),
 ]
+
+

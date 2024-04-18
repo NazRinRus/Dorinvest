@@ -1,0 +1,44 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Все выставки
+{% endblock title %}
+
+{% block content %}
+	<main class="main">
+
+		<div class="main__navbar">
+			<a href="{%url 'home'%}">Главная</a>
+		</div>
+
+		<section class="cards">
+			<h1 class="cards__title title">Все выставки</h1>
+			<div class="cards__container">
+
+				<div class="card">
+					<div class="card__description">
+						<h2 class="description__title description__date title">9 марта</h2>
+						<p class="description__text description__place">КЦ Зеленоград</p>
+					</div>
+					<div class="card__image">
+						<img src="../images/plug.jpg" alt="">
+					</div>
+				</div>
+				<div class="card">
+					<div class="card__description">
+						<h2 class="description__title description__date title">9 марта</h2>
+						<p class="description__text description__place">КЦ Зеленоград</p>
+					</div>
+					<div class="card__image">
+						<img src="../images/plug.jpg" alt="">
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<script  src="{% static 'dist/main.js' %}"></script>
+
+{% endblock content %}

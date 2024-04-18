@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock title %}</title>
+		<!-- <link rel="preload" href="./fonts/arcocyrillic.woff" as="font"> -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/cards.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/past.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/hystmodal.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/portfolio.css' %}" />
+
+		<link rel="stylesheet" href="{% static 'dist/main.css' %}" />
+    <link rel="icon" href="{% static 'images/icons/favicon.svg' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon" />
+  </head>
+
+
+  <body>
+
+  <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="{%url 'home'%}"><img class="header__logo" src="{% static 'images/icons/logo.svg' %}" alt="logo"></a>
+            <nav class="header__navigation header__navigation_desktop">
+                <ul class="navigation__list">
+                    <li class="navigation__list__item navigation__list__item_active"><a href="{%url 'home'%}" class="navigation__link">О выставке</a></li>
+                    <li class="navigation__list__item"><a href="{%url 'participants'%}" class="navigation__link" target="_blank">Участники</a></li>
+                    <li class="navigation__list__item"><a href="{%url 'exhibitions'%}" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__navigation_mobile">
+                <input id="toggle" type="checkbox"></input>
+
+                <label for="toggle" class="hamburger">
+                    <div class="top-bun"></div>
+                    <div class="meat"></div>
+                    <div class="bottom-bun"></div>
+                </label>
+
+                <div class="navigation__container">
+                    <nav class="navigation__content">
+                        <ul class="navigation__list">
+                            <li class="navigation__list__item"><a href="{%url 'home'%}" class="navigation__link">О выставке</a></li>
+                            <li class="navigation__list__item"><a href="{%url 'participants'%}" class="navigation__link" target="_blank">Участники</a></li>
+                            <li class="navigation__list__item"><a href="{%url 'exhibitions'%}" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+  <!-- Page content-->
+  {% block content %}
+
+  {% endblock content %}
+
+
+  {% include 'flatpages/footer.html' %}
+  </body>
+</html>

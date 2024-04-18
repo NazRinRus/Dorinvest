@@ -1,0 +1,92 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Страница участника
+{% endblock title %}
+
+{% block content %}
+	<main class="main">
+
+		<div class="main__navbar">
+			<a href="{%url 'home'%}">Главная</a>
+		</div>
+
+		<section	class="main__portfolio">
+
+			<div class="portfolio__container">
+				<div class="portfolio__photos">
+					<div class="photo photo-1">
+						<img src="../images/plug.jpg" alt="">
+					</div>
+					<div class="photo photo-2">
+						<img src="../images/plug.jpg" alt="">
+					</div>
+					<div class="photo photo-3">
+						<img src="../images/plug_square.jpg" alt="">
+					</div>
+				</div>
+
+				<div class="portfolio__description">
+					<h1 class="portfolio__name">Мурзик</h1>
+					<div class="description__breed description__item">
+						<p class="portfolio__description__title">Порода</p>
+						<p class="portfolio__description__text">Балинезийская кошка</p>
+					</div>
+
+					<div class="description__color description__item">
+						<p class="portfolio__description__title">Цвет</p>
+						<p class="portfolio__description__text">Черный с белой грудкой</p>
+					</div>
+
+					<div class="description__age description__item">
+						<p class="portfolio__description__title">Возраст</p>
+						<p class="portfolio__description__text">2 года</p>
+					</div>
+
+					<div class="description__sex description__item">
+						<p class="portfolio__description__title">Пол</p>
+						<p class="portfolio__description__text">Кобель</p>
+					</div>
+
+					<div class="description__temper description__item">
+						<p class="portfolio__description__title">Характер</p>
+						<p class="portfolio__description__text">Независимый и самостоятельный котик. Он может быть спокойным и умиротворенным, оставаясь при этом независимым от посторонних.</p>
+					</div>
+
+					<div class="description__talent description__item">
+						<p class="portfolio__description__title">Талант</p>
+						<p class="portfolio__description__text">Видный и солидный</p>
+					</div>
+					<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>
+				</div>
+			</div>
+		</section>
+
+		<div class="hystmodal" id="myModal" aria-hidden="true">
+			<div class="hystmodal__wrap">
+					<div class="hystmodal__window" role="dialog" aria-modal="true">
+							<form action="#" class="hystmodal__form">
+								<div class="form-group">
+									<label for="name">Ваше имя</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								<div class="form-group">
+									<label for="phone">Телефон</label>
+									<input type="tel" id="phone" name="phone" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Почта</label>
+									<input type="email" id="phone" name="email" required>
+								</div>
+								<button type="submit" class="form__button button">Отправить заявку</button>
+							</form>
+					</div>
+			</div>
+		</div>
+	</main>
+
+
+	<script src="{% static 'js/hystmodal.min.js' %}"></script>
+	<script  src="{% static 'js/portfolio.js' %}"></script>
+{% endblock content %}
