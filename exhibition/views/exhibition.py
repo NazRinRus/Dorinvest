@@ -181,7 +181,7 @@ class FAQAPIList(generics.ListAPIView):
 
 
 @extend_schema_view(
-    get=extend_schema(summary='Часто задаваемые вопросы', tags=['FAQ'])
+    get=extend_schema(summary='Заявки на получение питомца', tags=['Feedback'])
 )
 class FeedbackAPIView(viewsets.ModelViewSet):
     """API для создания заявки на получение питомца и отправки её на почту."""

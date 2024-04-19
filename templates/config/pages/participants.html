@@ -1,140 +1,84 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Участники</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="/static/css/reset.css" />
-		<link rel="stylesheet" href="/static/css/cards.css" />
-    <link rel="icon" href="/static/images/icons/dorinvest_logo.ico" type="image/x-icon" />
-  </head>
-	<body>
+{% extends 'flatpages/default.html' %}
+{% load static %}
 
-		<header class="header">
-			<div class="header__container">
-				<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
-				<nav class="header__navigation header__navigation_desktop">
-					<ul class="navigation__list">
-						<li class="navigation__list__item"><a href="/templates/config/index.html" class="navigation__link">О выставке</a></li>
-						<li class="navigation__list__item navigation__list__item_active"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-						<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-					</ul>
-				</nav>
+{% block title %}
+Участники
+{% endblock title %}
 
-				<div class="header__navigation_mobile"> 
-					<input id="toggle" type="checkbox"></input>
+{% block content %}
 
-					<label for="toggle" class="hamburger">
-						<div class="top-bun"></div>
-						<div class="meat"></div>
-						<div class="bottom-bun"></div>
-					</label>
+	<header class="header">
+		<div class="header__container">
+			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+			<nav class="header__navigation header__navigation_desktop">
+				<ul class="navigation__list">
+					<li class="navigation__list__item"><a href="/templates/config/index.html" class="navigation__link">О выставке</a></li>
+					<li class="navigation__list__item navigation__list__item_active"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+					<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+				</ul>
+			</nav>
 
-					<div class="navigation__container">
-						<nav class="navigation__content">
-							<ul class="navigation__list">
-								<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-								<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-								<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				
-			</div>
-		</header>
+			<div class="header__navigation_mobile">
+				<input id="toggle" type="checkbox"></input>
 
-		<main class="main">
-			<div class="main__navbar">
-				<a href="/templates/config/index.html">Главная</a>
-			</div>
-			
-			<section class="cards">
-				<h1 class="cards__title title">Участники</h1>
-				<div class="cards__container">
-				</div>				
-			</section>
+				<label for="toggle" class="hamburger">
+					<div class="top-bun"></div>
+					<div class="meat"></div>
+					<div class="bottom-bun"></div>
+				</label>
 
-			
-
-			<section class="request">				
-				<div class="request__container">
-					<h2 class="request__title title">Оставить заявку</h2>
-	
-					<form action="#" class="request__form">
-						<div class="form-group">
-							<label for="name">Имя</label>
-							<input type="text" id="name" name="name">
-						</div>
-						<div class="form-group">
-							<label for="phone">Телефон</label>
-							<input type="tel" id="phone" name="phone">
-						</div>
-						<div class="form-group">
-							<label for="friend">Кого бы вы хотели забрать</label>
-							<input type="text" id="friend" name="friend">
-						</div>
-						<button type="submit" class="form__button button">#Найти друга</button>
-					</form>
-	
-					<p class="request__description">
-						Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
-					</p>
-				</div>
-			</section>
-		</main>
-
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="footer__networks">
-					<h2 class="networks__title"><span class="networks__title__hashtag">#</span>Найти друга</h2>
-					<div class="networks__icons">
-						<a href="https://dorinvest.ru/">
-							<img src="/static/images/icons/dorinvest.svg" alt="Dorinvest">
-						</a>
-						<a href="https://t.me/dorinvest">
-							<img src="/static/images/icons/telegram.svg" alt="Dorinvest">
-						</a>
-						<a href="https://ok.ru/group/68842575364134">
-							<img src="/static/images/icons/ok.svg" alt="Dorinvest">
-						</a>
-						<a href="https://vk.com/dorinvest">
-							<img src="/static/images/icons/vk.svg" alt="Dorinvest">
-						</a>
-					</div>
-				</div>
-				<nav class="footer__navigation">
-					<ul class="footer__navigation__list">
-						<li class="footer__navigation__list__item"><a href="/templates/config/index.html" class="footer__navigation__link">О выставке</a></li>
-						<li class="footer__navigation__list__item"><a href="/templates/config/pages/participants.html" class="footer__navigation__link" target="_blank">Участники</a></li>
-						<li class="footer__navigation__list__item"><a href="" class="footer__navigation__link" target="_blank">Фотоотчёт</a></li>
-					</ul>
-				</nav>
-				<div class="footer__contacts">
-					<div class="contacts__item contacts__mail">
-						<img src="/static/images/icons/mail.svg" alt="">
-						<a href="mailto:https://gbudorinvest@dom.mos.ru" target="_blank">gbudorinvest@dom.mos.ru</a>
-					</div>
-					<div class="contacts__item contacts__phone">
-						<img src="/static/images/icons/phone.svg" alt="">
-						<a href="tel:+74992500630" target="_blank">8 (499) 250-06-30</a>
-					</div>
-					<div class="contacts__item contacts__adress">
-						<img src="/static/images/icons/map.svg" alt="">
-						<a href="https://yandex.ru/maps/?text=г. Москва, ул. 2-я Тверская-Ямская, д.2" target="_blank">г. Москва, ул. 2-я Тверская-Ямская, д.2</a>	
-					</div>					
+				<div class="navigation__container">
+					<nav class="navigation__content">
+						<ul class="navigation__list">
+							<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
+							<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+							<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		</footer>
-		
-<!-- 		<script  src="/static/js/cards.js"></script> -->
-		<script  src="/static//dist/main.js"></script>
-	</body>
-</html>
+
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="main__navbar">
+			<a href="/templates/config/index.html">Главная</a>
+		</div>
+
+		<section class="cards">
+			<h1 class="cards__title title">Участники</h1>
+			<div class="cards__container">
+			</div>
+		</section>
+
+
+
+		<section class="request">
+			<div class="request__container">
+				<h2 class="request__title title">Оставить заявку</h2>
+
+				<form action="#" class="request__form">
+					<div class="form-group">
+						<label for="name">Имя</label>
+						<input type="text" id="name" name="name">
+					</div>
+					<div class="form-group">
+						<label for="phone">Телефон</label>
+						<input type="tel" id="phone" name="phone">
+					</div>
+					<div class="form-group">
+						<label for="friend">Кого бы вы хотели забрать</label>
+						<input type="text" id="friend" name="friend">
+					</div>
+					<button type="submit" class="form__button button">#Найти друга</button>
+				</form>
+
+				<p class="request__description">
+					Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
+				</p>
+			</div>
+		</section>
+	</main>
+
+{% endblock content %}

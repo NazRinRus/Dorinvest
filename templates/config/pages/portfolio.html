@@ -1,177 +1,121 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Карточка участника</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="/static/css/reset.css" />
-		<link rel="stylesheet" href="/static/css/portfolio.css" />
-    <link rel="icon" href="/static/images/icons/dorinvest_logo.ico" type="image/x-icon" />
-  </head>
-	<body>
+{% extends 'flatpages/default.html' %}
+{% load static %}
 
-		<header class="header">
-			<div class="header__container">
-				<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
-				<nav class="header__navigation header__navigation_desktop">
-					<ul class="navigation__list">
-						<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-						<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-						<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-					</ul>
-				</nav>
+{% block title %}
+Карточка участника
+{% endblock title %}
 
-				<div class="header__navigation_mobile"> 
-					<input id="toggle" type="checkbox"></input>
+{% block content %}
 
-					<label for="toggle" class="hamburger">
-						<div class="top-bun"></div>
-						<div class="meat"></div>
-						<div class="bottom-bun"></div>
-					</label>
+	<header class="header">
+		<div class="header__container">
+			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+			<nav class="header__navigation header__navigation_desktop">
+				<ul class="navigation__list">
+					<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
+					<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+					<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+				</ul>
+			</nav>
 
-					<div class="navigation__container">
-						<nav class="navigation__content">
-							<ul class="navigation__list">
-								<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-								<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-								<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-				
-			</div>
-		</header>
+			<div class="header__navigation_mobile">
+				<input id="toggle" type="checkbox"></input>
 
-		<main class="main">
-			<div class="main__navbar">
-				<a href="/templates/config/index.html">Главная</a>
-			</div>
-			
-			<section	class="main__portfolio">
+				<label for="toggle" class="hamburger">
+					<div class="top-bun"></div>
+					<div class="meat"></div>
+					<div class="bottom-bun"></div>
+				</label>
 
-				<div class="portfolio__container">
-					<div class="portfolio__photos">
-						<div class="photo photo-1">
-						</div>
-						<div class="photo photo-2">
-						</div>
-						<div class="photo photo-3">
-						</div>
-					</div>
-
-					<div class="portfolio__description">
-						<h1 class="portfolio__name">Мурзик</h1>
-						<div class="description__breed description__item">
-							<p class="portfolio__description__title">Порода</p>
-							<p class="portfolio__description__text portfolio__description__breed">Балинезийская кошка</p>
-						</div>
-
-						<div class="description__color description__item">
-							<p class="portfolio__description__title">Цвет</p>
-							<p class="portfolio__description__text portfolio__description__color">Черный с белой грудкой</p>
-						</div>
-
-						<div class="description__age description__item">
-							<p class="portfolio__description__title">Возраст</p>
-							<p class="portfolio__description__text portfolio__description__age">2 года</p>
-						</div>
-
-						<div class="description__sex description__item">
-							<p class="portfolio__description__title">Пол</p>
-							<p class="portfolio__description__text portfolio__description__sex">Кобель</p>
-						</div>
-
-						<div class="description__temper description__item">
-							<p class="portfolio__description__title">Характер</p>
-							<p class="portfolio__description__text portfolio__description__temper">Независимый и самостоятельный котик. Он может быть спокойным и умиротворенным, оставаясь при этом независимым от посторонних.</p>	
-						</div>
-
-						<div class="description__talent description__item">
-							<p class="portfolio__description__title">Талант</p>
-							<p class="portfolio__description__text portfolio__description__talent">Видный и солидный</p>
-						</div>	
-						<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>				
-					</div>
-				</div>
-			</section>
-
-			<div class="hystmodal" id="myModal" aria-hidden="true">
-				<div class="hystmodal__wrap">
-						<div class="hystmodal__window" role="dialog" aria-modal="true">
-								<form action="#" class="hystmodal__form">
-									<div class="form-group">
-										<label for="name">Ваше имя</label>
-										<input type="text" id="name" name="name" required>
-									</div>
-									<div class="form-group">
-										<label for="phone">Телефон</label>
-										<input type="tel" id="phone" name="phone" required>
-									</div>
-									<div class="form-group">
-										<label for="email">Почта</label>
-										<input type="email" id="phone" name="email" required>
-									</div>
-									<button type="submit" class="form__button button">Отправить заявку</button>
-								</form>
-						</div>
+				<div class="navigation__container">
+					<nav class="navigation__content">
+						<ul class="navigation__list">
+							<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
+							<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+							<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		</main>
 
-		<footer class="footer">
-			<div class="footer__container">
-				<div class="footer__networks">
-					<h2 class="networks__title"><span class="networks__title__hashtag">#</span>Найти друга</h2>
-					<div class="networks__icons">
-						<a href="https://dorinvest.ru/">
-							<img src="/static/images/icons/dorinvest.svg" alt="Dorinvest">
-						</a>
-						<a href="https://t.me/dorinvest">
-							<img src="/static/images/icons/telegram.svg" alt="Dorinvest">
-						</a>
-						<a href="https://ok.ru/group/68842575364134">
-							<img src="/static/images/icons/ok.svg" alt="Dorinvest">
-						</a>
-						<a href="https://vk.com/dorinvest">
-							<img src="/static/images/icons/vk.svg" alt="Dorinvest">
-						</a>
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="main__navbar">
+			<a href="/templates/config/index.html">Главная</a>
+		</div>
+
+		<section	class="main__portfolio">
+
+			<div class="portfolio__container">
+				<div class="portfolio__photos">
+					<div class="photo photo-1">
+					</div>
+					<div class="photo photo-2">
+					</div>
+					<div class="photo photo-3">
 					</div>
 				</div>
-				<nav class="footer__navigation">
-					<ul class="footer__navigation__list">
-						<li class="footer__navigation__list__item"><a href="/templates/config/index.html" class="footer__navigation__link">О выставке</a></li>
-						<li class="footer__navigation__list__item"><a href="/templates/config/pages/participants.html" class="footer__navigation__link" target="_blank">Участники</a></li>
-						<li class="footer__navigation__list__item"><a href="" class="footer__navigation__link" target="_blank">Фотоотчёт</a></li>
-					</ul>
-				</nav>
-				<div class="footer__contacts">
-					<div class="contacts__item contacts__mail">
-						<img src="/static/images/icons/mail.svg" alt="">
-						<a href="mailto:https://gbudorinvest@dom.mos.ru" target="_blank">gbudorinvest@dom.mos.ru</a>
+
+				<div class="portfolio__description">
+					<h1 class="portfolio__name">Мурзик</h1>
+					<div class="description__breed description__item">
+						<p class="portfolio__description__title">Порода</p>
+						<p class="portfolio__description__text portfolio__description__breed">Балинезийская кошка</p>
 					</div>
-					<div class="contacts__item contacts__phone">
-						<img src="/static/images/icons/phone.svg" alt="">
-						<a href="tel:+74992500630" target="_blank">8 (499) 250-06-30</a>
+
+					<div class="description__color description__item">
+						<p class="portfolio__description__title">Цвет</p>
+						<p class="portfolio__description__text portfolio__description__color">Черный с белой грудкой</p>
 					</div>
-					<div class="contacts__item contacts__adress">
-						<img src="/static/images/icons/map.svg" alt="">
-						<a href="https://yandex.ru/maps/?text=г. Москва, ул. 2-я Тверская-Ямская, д.2" target="_blank">г. Москва, ул. 2-я Тверская-Ямская, д.2</a>	
-					</div>					
+
+					<div class="description__age description__item">
+						<p class="portfolio__description__title">Возраст</p>
+						<p class="portfolio__description__text portfolio__description__age">2 года</p>
+					</div>
+
+					<div class="description__sex description__item">
+						<p class="portfolio__description__title">Пол</p>
+						<p class="portfolio__description__text portfolio__description__sex">Кобель</p>
+					</div>
+
+					<div class="description__temper description__item">
+						<p class="portfolio__description__title">Характер</p>
+						<p class="portfolio__description__text portfolio__description__temper">Независимый и самостоятельный котик. Он может быть спокойным и умиротворенным, оставаясь при этом независимым от посторонних.</p>
+					</div>
+
+					<div class="description__talent description__item">
+						<p class="portfolio__description__title">Талант</p>
+						<p class="portfolio__description__text portfolio__description__talent">Видный и солидный</p>
+					</div>
+					<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>
 				</div>
 			</div>
-		</footer>
+		</section>
+
+		<div class="hystmodal" id="myModal" aria-hidden="true">
+			<div class="hystmodal__wrap">
+					<div class="hystmodal__window" role="dialog" aria-modal="true">
+							<form action="#" class="hystmodal__form">
+								<div class="form-group">
+									<label for="name">Ваше имя</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								<div class="form-group">
+									<label for="phone">Телефон</label>
+									<input type="tel" id="phone" name="phone" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Почта</label>
+									<input type="email" id="phone" name="email" required>
+								</div>
+								<button type="submit" class="form__button button">Отправить заявку</button>
+							</form>
+					</div>
+			</div>
+		</div>
+	</main>
+
 		
-<!-- 		<script src="../js/hystmodal.min.js"></script>
-		<script  src="../js/portfolio.js"></script> -->
-		<script src="/static/dist/main.js"></script>
-	</body>
-</html>
+{% endblock content %}
