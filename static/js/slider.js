@@ -27,7 +27,7 @@ const swiperPartners = new Swiper('.swiper-partners', {
 	watchOverflow: true,
 	spaceBetween: 0,
 	freeMode: true,
-	mousewheel:{
+/* 	mousewheel:{
 		sensitivity: 10,
-	}
+	}, */
 });

@@ -74,7 +74,7 @@
 
 .form__button{
 	font-family: "Montserrat", sans-serif;
-	font-size: clamp(25px, 1.5vw, 32px);
+	font-size: clamp(25px, 2.5vw, 32px);
 	height: clamp(50px, 6vw, 72px);	
 	margin-top: 25px;
 }

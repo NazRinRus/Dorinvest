@@ -1,11 +1,11 @@
-@import url("/css/variables.css");
-@import url("/css/header.css");
-@import url("/css/form.css");
-@import url("/css/footer.css");
+@import url("/static/css/variables.css");
+@import url("/static/css/header.css");
+@import url("/static/css/form.css");
+@import url("/static/css/footer.css");
 
 @font-face {
 	font-family: "arcocyrillic";
-	src: url("../fonts/arcocyrillic.woff") format('woff');
+	src: url("/static/fonts/arcocyrillic.woff") format('woff');
 }
 
 html{
@@ -18,10 +18,13 @@ body{
 	background-color: var(--bg-green);	
 }
 
-.button{
-	background-color: var(--l-green);
+.button:not(.form__button){
 	font-family: arcocyrillic;
 	font-size: clamp(18px, 2.5vw, 36px);
+}
+
+.button{
+	background-color: var(--l-green);
 	color: #fff;
 	border: none;
 	border-radius: 6px;
@@ -80,7 +83,7 @@ body{
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background: url("../images/icons/nav_arr.svg") no-repeat;
+	background: url("/static/images/icons/nav_arr.svg") no-repeat;
 }
 
 
@@ -127,7 +130,7 @@ body{
 .card__description::after{
 	content: "";
 	position: absolute;
-	background: url("../images/icons/card_triangle.svg") no-repeat;
+	background: url("/static/images/icons/card_triangle.svg") no-repeat;
 	height: 27px;
 	width: 15px;
 	right: 0px;

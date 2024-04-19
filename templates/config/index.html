@@ -1,17 +1,57 @@
-{% extends 'flatpages/default.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Доринвест</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/static/dist/main.css" />
+    <link rel="icon" href="/static/images/icons/dorinvest_logo.ico" type="image/x-icon" />
+  </head>
+	<body>
 
-{% block title %}
-Выставка
-{% endblock title %}
+		<header class="header">
+			<div class="header__container">
+				<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+				<nav class="header__navigation header__navigation_desktop">
+					<ul class="navigation__list">
+						<li class="navigation__list__item navigation__list__item_active"><a href="" class="navigation__link">О выставке</a></li>
+						<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+						<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+					</ul>
+				</nav>
 
-{% block content %}
+				<div class="header__navigation_mobile"> 
+					<input id="toggle" type="checkbox"></input>
 
-<!--Banner-->
+					<label for="toggle" class="hamburger">
+						<div class="top-bun"></div>
+						<div class="meat"></div>
+						<div class="bottom-bun"></div>
+					</label>
+
+					<div class="navigation__container">
+						<nav class="navigation__content">
+							<ul class="navigation__list">
+								<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
+								<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
+								<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</header>
+
 		<main>
 			<section class="hero">
 				<span class="hero__background_span">Забери меня<br>домой!</span>
-				<img class="hero__background" src="{% static 'images/banner-2.png'%}" alt="" loading="lazy">
+				<img class="hero__background" src="/static/images/banner-2.png" alt="" loading="lazy" width="1440" height="886">
 				<div class="hero__container">
 					<div class="hero__top">
 						<div class="hero__info">
@@ -19,8 +59,8 @@
 							<p class="hero__info__description">Большая выставка кошек и собак</p>
 						</div>
 						<div class="hero__date">
-							<div class="hero__date__date">
-								<p ><span class="hero__date__days">6-8</span> <span class="hero__date__month">мая</span></p>
+							<div class="hero__date__container">
+								<div><span class="hero__date__days">6-8</span> <span class="hero__date__month">мая</span></div>
 								<p class="hero__date__time">с 12:00 до 20:00</p>
 							</div>							
 						</div>
@@ -29,11 +69,11 @@
 				</div>
 				<a href="#request" class="hero__button button"><span class="hero__button__hashtag">#</span>Найти друга</a>
 			</section>
-<!--About-->
+	
 			<section class="about">
 				<h2 class="about__description__title about__description__title__mobile title ">О выставке</h2>
 				<div class="about__image">
-					<img src="{% static 'images/about-img.jpg' %}" alt="" loading="lazy" width="919" height="574">
+					<img src="/static/images/about-img.jpg" alt="" loading="lazy" width="919" height="574">
 					<span>У тебя такие<br>нежные ручки!</span>
 				</div>
 				<div class="about__description">
@@ -41,108 +81,24 @@
 					<p class="about__description__text">При поддержке ГБУ «Доринвест» мы рады пригласить вас на выставку животных,  которая проводится с целью пристройства наших пушистых друзей в заботливые дома.<br><br>Мы гордимся нашими приютами,где животным предоставляются комфортные условия, проходят ветеринарный уход и получают все необходимые прививки и процедуры. </p>
 				</div>
 			</section>
-<!--Participants-->
+	
 			<section class="participants">
 				<h2 class="participants__title title">Участники</h2>
 				<div class="participants__gallery">
-					<div class="participants__gallery__item participants__gallery__item-1">
-						<img src="./images/plug.jpg" alt="" loading="lazy">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-2">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-3">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-4">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-5">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-6">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-7">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-8">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<div class="participants__gallery__item participants__gallery__item-9">
-						<img src="./images/plug.jpg" alt="">
-					</div>
-					<a class="participants__button card__button" href="{%url 'participants'%}" target="_blank">#Посмотреть всех участников</a>
+<!-- 					<div class="participants__gallery__item participants__gallery__item-1">
+						<img src="/static/images/plug.jpg" alt="" loading="lazy">
+					</div> -->
+					<a class="participants__button card__button" href="/templates/config/pages/participants.html" target="_blank">#Посмотреть всех участников</a>
 				</div>
 			</section>
-<!--Past exhibitions-->
+	
 			<section class="past">
 				<h2 class="past__title title">Прошлые выставки</h2>
-				<div class="past__gallery">
-					<a href="" class="past__gallery__item past__gallery__item-1">
-						<div class="item__description item__description_main">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date_main">9 марта</p>
-								<p class="item__description__place item__description__place_main">КЦ Зеленоград</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="" loading="lazy">
-					</a>
-					<a href="" class="past__gallery__item past__gallery__item-2">
-						<div class="item__description">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date">9 марта</p>
-								<p class="item__description__place item__description__place">КЦ Зеленоград</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="">
-					</a>
-					<a href="" class="past__gallery__item past__gallery__item-3">
-						<div class="item__description">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date">21 мая</p>
-								<p class="item__description__place item__description__place">ВДНХ Лекторий</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="">
-					</a>
-					<a href="" class="past__gallery__item past__gallery__item-4">
-						<div class="item__description">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date">19 августа</p>
-								<p class="item__description__place item__description__place">МУФ</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="">
-					</a>
-					<a href="" class="past__gallery__item past__gallery__item-5">
-						<div class="item__description">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date">21 мая</p>
-								<p class="item__description__place item__description__place">ВДНХ Лекторий</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="">
-					</a>
-					<a href="" class="past__gallery__item past__gallery__item-6">
-						<div class="item__description">
-							<div class="item__description__background"></div>
-							<div class="item__description__container">
-								<p class="item__description__date item__description__date">9 марта</p>
-								<p class="item__description__place item__description__place">КЦ Зеленоград</p>
-							</div>
-						</div>
-						<img src="./images/plug.jpg" alt="">
-					</a>
-					<a class="past__button card__button" href="{%url 'exhibitions'%}" target="_blank">#Посмотреть все фото</a>
+				<div class="past__gallery">	
+					<a class="past__button card__button" href="/templates/config/pages/all-exhibitions.html" target="_blank">#Все выставки</a>
 				</div>
 			</section>
-<!--Statistics-->
+	
 			<section class="statistics">
 				<div class="statistics__description">
 					<h2 class="statistics__description__title">Работниками приютов отдано в добрые руки</h2>
@@ -156,15 +112,43 @@
 					</div>
 				</div>
 				<div class="statistics__image">
-					<img src="{% static 'images/stat-img.jpg' %}" alt="" loading="lazy" width="919" height="574">
+					<img src="/static/images/stat-img.jpg" alt="" loading="lazy" width="919" height="574">
 					<span>Как я об этом<br>мечтал!</span>
 				</div>
 				
 			</section>
 	
-<!--Application-->
-	{% include 'flatpages/application.html' %}
-<!--Useful Info-->
+			<section class="request" id="request">
+	
+				<div class="request__container">
+					<h2 class="request__title title">Оставить заявку</h2>
+	
+					<form action="#" class="request__form">
+						<div class="form-group">
+							<label for="name">Имя</label>
+							<input type="text" id="name" name="name" required>
+						</div>
+						<div class="form-group">
+							<label for="phone">Телефон</label>
+							<input type="tel" id="phone" name="phone" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Почта</label>
+							<input type="email" id="phone" name="email" required>
+						</div>
+						<div class="form-group">
+							<label for="friend">Кого бы вы хотели забрать</label>
+							<input type="text" id="friend" name="friend" required>
+						</div>
+						<button type="submit" class="form__button button">#Найти друга</button>
+					</form>
+	
+					<p class="request__description">
+						Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
+					</p>
+				</div>
+			</section>
+	
 			<section class="adviсe">
 				<h2 class="adviсe__title title">Полезная информация</h2>
 				<div class="swiper__container">
@@ -176,7 +160,7 @@
 									<div class="slide__content">
 										<div class="slide__content__background"></div>
 										<div class="slide__content__text">Виды наполнителей для туалетов домашних питомцев</div>
-										<img src="{% static 'images/plug_square.jpg' %}" alt="" loading="lazy">
+										<img src="/static/images/advice/img-1.jpg" alt="" loading="lazy">
 									</div>
 								</a>
 							</div>
@@ -185,7 +169,7 @@
 									<div class="slide__content">
 										<div class="slide__content__background"></div>
 										<div class="slide__content__text">Прививки собакам и кошкам</div>
-										<img src="{% static 'images/plug_square.jpg' %}" alt="">
+										<img src="/static/images/advice/img-2.jpg" alt="">
 									</div>
 								</a>
 							</div>
@@ -193,8 +177,8 @@
 								<a href="">
 									<div class="slide__content">
 										<div class="slide__content__background"></div>
-										<div class="slide__content__text">Как правильно организовать кормление кошки?</div>
-										<img src="{% static 'images/plug_square.jpg' %}" alt="">
+										<div class="slide__content__text">Как правильно организовать кормление кошки</div>
+										<img src="/static/images/advice/img-3.jpg" alt="">
 									</div>
 								</a>
 							</div>
@@ -202,8 +186,17 @@
 								<a href="">
 									<div class="slide__content">
 										<div class="slide__content__background"></div>
-										<div class="slide__content__text">Как сохранить обои целыми</div>
-										<img src="{% static 'images/plug_square.jpg' %}" alt="">
+										<div class="slide__content__text">Дрессировка собак</div>
+										<img src="/static/images/advice/img-4.jpg" alt="">
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="">
+									<div class="slide__content">
+										<div class="slide__content__background"></div>
+										<div class="slide__content__text">Ветеринарная клиника</div>
+										<img src="/static/images/advice/img-5.jpg" alt="">
 									</div>
 								</a>
 							</div>
@@ -213,56 +206,19 @@
 					<div class="swiper-button-next swiper-nav-button"></div>
 				</div>
 			</section>
-<!--FAQ-->
+	
 			<section class="question">
-				<h2 class="question__title title">Часто задаваемые вопросы</h2>
-	
+				<h2 class="question__title title">Часто задаваемые вопросы</h2>	
 				<div class="accordion-container">
-					<div class="ac">
-						<h2 class="ac-header">
-							<button type="button" class="ac-trigger">Я хочу взять животное с выставки. Как это сделать?</button>
-						</h2>
-						<div class="ac-panel">
-							<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</div>
-				
-					<div class="ac">
-						<h2 class="ac-header">
-							<button type="button" class="ac-trigger">Могу ли я выбрать животное по фотографии или нужно приехать?</button>
-						</h2>
-						<div class="ac-panel">
-							<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</div>
-				
-					<div class="ac">
-						<h2 class="ac-header">
-							<button type="button" class="ac-trigger">Я хочу взять животное с выставки. Как это сделать?</button>
-						</h2>
-						<div class="ac-panel">
-							<p class="ac-text">Не торопитесь и не принимайте решение наспех. Рассмотрите несколько вариантов животных, задавая важные вопросы и подбирая себе подходящего питомца. Заключите соглашение и пройдите процедуры: После выбора животного, заключите сделку с заводчиком. Убедитесь, что вы получили всю необходимую документацию, связанную с животным (контракт, ветеринарные справки, паспорт).</p>
-						</div>
-					</div>
-	
-					<div class="ac">
-						<h2 class="ac-header">
-							<button type="button" class="ac-trigger">В каких городах проводится выставка?</button>
-						</h2>
-						<div class="ac-panel">
-							<p class="ac-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-					</div>
-				</div>
-				
+				</div>				
 				<picture class="question__picture">
-					<source media="(min-width: 901px)" srcset="{% static 'images/icons/accordeon-decor.svg' %}" class="question__decor">
-					<source media="(max-width: 901px)" srcset="{% static 'images/icons/accordeon-decor-mobile.svg' %}" class="question__decor">
-					<img class="question__decor" src="{% static 'images/icons/accordeon-decor.svg' %}" alt="">
+					<source media="(min-width: 901px)" srcset="/static/images/icons/accordeon-decor.svg" class="question__decor">
+					<source media="(max-width: 901px)" srcset="/static/images/icons/accordeon-decor-mobile.svg" class="question__decor">
+					<img class="question__decor" src="/static/images/icons/accordeon-decor.svg" alt="">
 				</picture>
 				
 			</section>
-<!--Partners-->
+	
 			<section class="partners">
 					<div class="partners__title__container">
 						<h2 class="partners__title title">Партнеры выставки</h2>
@@ -270,34 +226,7 @@
 					<div class="partners__swiper__container">
 						<div class="swiper swiper-partners">
 							<div class="swiper-wrapper partners__swiper-wrapper">
-								<div class="swiper-slide partners__swiper-slide ">
-									<a href="">
-										<div class="slide__content partners__slide__content ">
-											<img src="./images/partner-1.svg" alt="" loading="lazy">
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide partners__swiper-slide">
-									<a href="">
-										<div class="slide__content partners__slide__content">
-											<img src="./images/partner-2.svg" alt="">
-										</div>
-									</a>
-								</div>
-								<div class="swiper-slide partners__swiper-slide">
-									<a href="">
-										<div class="slide__content partners__slide__content">
-											<img src="./images/partner-3.svg" alt="">
-										</div>
-									</a>
-								</div>	
-								<div class="swiper-slide partners__swiper-slide">
-									<a href="">
-										<div class="slide__content partners__slide__content">
-											<img src="./images/plug.jpg" alt="">
-										</div>
-									</a>
-								</div>	
+									
 							</div>
 							
 						</div>					
@@ -305,5 +234,50 @@
 			</section>
 		</main>
 
-	<script  src="{% static 'dist/main.js' %}"></script>
-{% endblock content %}
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__networks">
+					<h2 class="networks__title"><span class="networks__title__hashtag">#</span>Найти друга</h2>
+					<div class="networks__icons">
+						<a href="https://dorinvest.ru/">
+							<img src="/static/images/icons/dorinvest.svg" alt="Dorinvest">
+						</a>
+						<a href="https://t.me/dorinvest">
+							<img src="/static/images/icons/telegram.svg" alt="Dorinvest">
+						</a>
+						<a href="https://ok.ru/group/68842575364134">
+							<img src="/static/images/icons/ok.svg" alt="Dorinvest">
+						</a>
+						<a href="https://vk.com/dorinvest">
+							<img src="/static/images/icons/vk.svg" alt="Dorinvest">
+						</a>
+					</div>
+				</div>
+				<nav class="footer__navigation">
+					<ul class="footer__navigation__list">
+						<li class="footer__navigation__list__item"><a href="/templates/config/index.html" class="footer__navigation__link">О выставке</a></li>
+						<li class="footer__navigation__list__item"><a href="/templates/config/pages/participants.html" class="footer__navigation__link" target="_blank">Участники</a></li>
+						<li class="footer__navigation__list__item"><a href="" class="footer__navigation__link" target="_blank">Фотоотчёт</a></li>
+					</ul>
+				</nav>
+				<div class="footer__contacts">
+					<div class="contacts__item contacts__mail">
+						<img src="/static/images/icons/mail.svg" alt="">
+						<a href="mailto:https://gbudorinvest@dom.mos.ru" target="_blank">gbudorinvest@dom.mos.ru</a>
+					</div>
+					<div class="contacts__item contacts__phone">
+						<img src="/static/images/icons/phone.svg" alt="">
+						<a href="tel:+74992500630" target="_blank">8 (499) 250-06-30</a>
+					</div>
+					<div class="contacts__item contacts__adress">
+						<img src="/static/images/icons/map.svg" alt="">
+						<a href="https://yandex.ru/maps/?text=г. Москва, ул. 2-я Тверская-Ямская, д.2" target="_blank">г. Москва, ул. 2-я Тверская-Ямская, д.2</a>	
+					</div>					
+				</div>
+			</div>
+		</footer>
+
+<!-- 		<script  src="/static/js/mainPage.js"></script> -->
+		<script  src="/static/dist/main.js"></script>
+	</body>
+</html>

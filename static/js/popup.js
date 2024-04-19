@@ -1,6 +1,6 @@
 
 
 
-const myModal = new HystModal({
+/* const myModal = new HystModal({
 	linkAttributeName: "data-hystmodal",
-});
+}); */
