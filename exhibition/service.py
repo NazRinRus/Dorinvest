@@ -1,7 +1,6 @@
 from django.core.mail import EmailMultiAlternatives
-from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
-from django.urls import reverse
+
 from config.settings import EMAIL_HOST_USER, WORKER_LIST
 
 

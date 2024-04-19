@@ -15,6 +15,18 @@ class FotoParticipantSerializer(serializers.ModelSerializer):
         fields = ("foto",)
 
 
+class TypeParticipantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = participant.TypeParticipant
+        fields = "__all__"
+
+
+class BreedParticipantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = participant.BreedParticipant
+        fields = "__all__"
+
+
 class PartnerExhibitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = partner.Partner
@@ -23,6 +35,8 @@ class PartnerExhibitionSerializer(serializers.ModelSerializer):
 
 class ParticipantExhibitionSerializer(serializers.ModelSerializer):
     participant_foto = FotoParticipantSerializer(many=True)
+    breed = BreedParticipantSerializer()
+    type_p = TypeParticipantSerializer()
 
     class Meta:
         model = participant.Participant

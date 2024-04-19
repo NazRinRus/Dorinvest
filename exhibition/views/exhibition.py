@@ -1,16 +1,15 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, filters, generics, mixins
-from drf_spectacular.utils import extend_schema_view, extend_schema
 from datetime import datetime
-from rest_framework.views import APIView
-from rest_framework.viewsets import GenericViewSet
-from rest_framework import status
-from rest_framework.response import Response
-from exhibition.service import send_message
 
+from django_filters.rest_framework import DjangoFilterBackend
+from drf_spectacular.utils import extend_schema_view, extend_schema
+from rest_framework import status
+from rest_framework import viewsets, filters, generics, mixins
+from rest_framework.response import Response
+
+from exhibition.models.exhibition import Foto, Exhibition, FAQ, Feedback
 from exhibition.serializers.api.exhibition import FotoExhibitionSerializer, ExhibitionSerializer, FAQSerializer, \
     FeedbackSerializer
-from exhibition.models.exhibition import Foto, Exhibition, FAQ, Feedback
+from exhibition.service import send_message
 
 
 class FotoExhibitionViewSet(viewsets.ModelViewSet):
@@ -58,7 +57,6 @@ class ExhibitionNowAPIRetrieve(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         qs = Exhibition.objects.filter(date_end__gte=datetime.now()).order_by('date_end')[:1]
-        print(qs)
         return qs
 
 
@@ -70,7 +68,6 @@ class ExhibitionPreviousAPIView(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         qs = Exhibition.objects.filter(date_end__lte=datetime.now()).order_by('-date_end')[:6]
-        print(qs)
         return qs
 
 
