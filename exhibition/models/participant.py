@@ -42,8 +42,15 @@ class BreedParticipant(models.Model):
 
 
 class Participant(models.Model):
+    GENDER = [
+        ('boy', 'Мальчик'),
+        ('girl', 'Девочка'),
+    ]
+
     name = models.CharField("Кличка", max_length=30, null=False)
     color = models.CharField("Окрас", max_length=30, null=True, blank=True)
+    age = models.CharField("Возраст", max_length=30, null=True, blank=True)
+    gender = models.CharField("Пол", max_length=10, choices=GENDER)
     other = models.TextField("Описание", null=True)
     found_home = models.BooleanField(default=False, verbose_name="Забрали домой")
     type_p = models.ForeignKey(

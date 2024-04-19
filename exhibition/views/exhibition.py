@@ -73,7 +73,11 @@ class ExhibitionNowAPIRetrieve(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         qs = Exhibition.objects.filter(date_end__gte=datetime.now()).order_by('date_end')[:1]
+        print(type(qs), qs)
         return qs
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
 
 @extend_schema_view(
@@ -88,6 +92,9 @@ class ExhibitionPreviousAPIView(viewsets.GenericViewSet, mixins.ListModelMixin):
     def get_queryset(self):
         qs = Exhibition.objects.filter(date_end__lte=datetime.now()).order_by('-date_end')[:6]
         return qs
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
 
 #####################
@@ -114,6 +121,9 @@ class FoundHomeSummaryAPIView(viewsets.GenericViewSet, mixins.ListModelMixin):
             qs[type_p.name] = total_found_home
 
         return Response(qs)
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
 
 @extend_schema_view(
@@ -152,6 +162,9 @@ class FoundHomeSummaryDetailsAPIView(viewsets.GenericViewSet, mixins.ListModelMi
 
         return Response(qs)
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
 
 ################
 ###Other########
@@ -168,7 +181,7 @@ class FAQAPIList(generics.ListAPIView):
 
 
 @extend_schema_view(
-    get=extend_schema(summary='Заявки на приобретение питомца', tags=['Заявки'])
+    get=extend_schema(summary='Часто задаваемые вопросы', tags=['FAQ'])
 )
 class FeedbackAPIView(viewsets.ModelViewSet):
     """API для создания заявки на получение питомца и отправки её на почту."""
@@ -196,3 +209,6 @@ class FeedbackAPIView(viewsets.ModelViewSet):
             return Response({'message': 'Feedback created successfully'}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
