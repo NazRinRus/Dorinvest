@@ -3,6 +3,7 @@ async function getFullStatistics(){
 		const response = await fetch("http://127.0.0.1:8000/api/statistics_all/")
 		const data = await response.json()
 		console.log(data)
+		return data
 
 	}catch{
 
@@ -16,6 +17,7 @@ async function getStatistics(exhibitionID){
 		const response = await fetch(`http://127.0.0.1:8000/api/statistics/${exhibitionID}`)
 		const data = await response.json()
 		console.log(data)
+		return data
 
 	}catch{
 

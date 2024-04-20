@@ -6,9 +6,11 @@ import { fullStatistics } from "./getStatistics";
 import Accordion from '/static/js/accordion.min.js';
 import '/static/css/accordion.min.css';
 
-if(window.location.href.includes("index")){
+if(window.location.href === "http://127.0.0.1:8000/"){
 	const nowExhibition = currentExhibition
 
+	//console.log(currentExhibition)
+	
 // HERO
 
 document.querySelector(".hero__info__title").innerHTML = nowExhibition.name
@@ -19,7 +21,7 @@ document.querySelector(".hero__date__time").innerHTML = nowExhibition.time_event
 document.querySelector(".hero__place").innerHTML = nowExhibition.location
 document.querySelector(".about__description__text").innerHTML = nowExhibition.about
 
-
+//console.log(nowExhibition.exhibition_foto)
 
 // PARTICIPANTS
 
@@ -27,14 +29,17 @@ const participantsGallery = document.querySelector(".participants__gallery")
 const participantsphotos = nowExhibition.exhibition_foto
 
 participantsphotos.forEach((item, index)=>{
+	//console.log(item.foto)
 	showParticipantsPhoto(item, index)
 })
 
-function showParticipantsPhoto(participant, index){
+//ФОТО НЕ ГРУЗИТ
+
+function showParticipantsPhoto(photo, index){
 	const photoContainer = document.createElement("div")
 	photoContainer.classList.add("participants__gallery__item")
 	photoContainer.classList.add(`participants__gallery__item-${index + 1}`)
-	photoContainer.innerHTML = `<img src="${participant.foto}" alt="" loading="lazy">`
+	photoContainer.innerHTML = `<img src="${photo.foto}">`
 	participantsGallery.appendChild(photoContainer)
 }
 
@@ -92,8 +97,8 @@ function showPastExgibitions(exhibition, index){
 
 // STATISTICS
 
-document.querySelector(".cats__number").innerHTML = fullStatistics.кошки
-document.querySelector(".dogs__number").innerHTML = fullStatistics.собаки
+document.querySelector(".cats__number").innerHTML = fullStatistics.Кошка
+document.querySelector(".dogs__number").innerHTML = fullStatistics.Собака
 
 
 // QUESTIONS
@@ -190,6 +195,7 @@ function showQuestions(question, index){
 		return months[month]
 	}
 } else {
+	console.log(1)
 }
 
 

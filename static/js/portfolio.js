@@ -28,6 +28,4 @@ function showPortfolio(){
 	document.querySelector(".portfolio__description__color").innerHTML = `${portfolio.color}`
 	document.querySelector(".portfolio__description__age").innerHTML = `${portfolio.breed.code}`
 	document.querySelector(".portfolio__description__sex").innerHTML = `${portfolio.breed.code}`
-	document.querySelector(".portfolio__description__temper").innerHTML = `${portfolio.other}`
-	document.querySelector(".portfolio__description__talent").innerHTML = `${portfolio.other}`
 }

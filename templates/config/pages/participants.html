@@ -7,78 +7,18 @@
 
 {% block content %}
 
-	<header class="header">
-		<div class="header__container">
-			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
-			<nav class="header__navigation header__navigation_desktop">
-				<ul class="navigation__list">
-					<li class="navigation__list__item"><a href="/templates/config/index.html" class="navigation__link">О выставке</a></li>
-					<li class="navigation__list__item navigation__list__item_active"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-					<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-				</ul>
-			</nav>
-
-			<div class="header__navigation_mobile">
-				<input id="toggle" type="checkbox"></input>
-
-				<label for="toggle" class="hamburger">
-					<div class="top-bun"></div>
-					<div class="meat"></div>
-					<div class="bottom-bun"></div>
-				</label>
-
-				<div class="navigation__container">
-					<nav class="navigation__content">
-						<ul class="navigation__list">
-							<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-
-		</div>
-	</header>
-
 	<main class="main">
 		<div class="main__navbar">
-			<a href="/templates/config/index.html">Главная</a>
+			<a href="{% url 'home' %}">Главная</a>
 		</div>
 
 		<section class="cards">
 			<h1 class="cards__title title">Участники</h1>
-			<div class="cards__container">
-			</div>
+			<div class="cards__container"></div>
 		</section>
 
+		{% include 'flatpages/application.html' %}
 
-
-		<section class="request">
-			<div class="request__container">
-				<h2 class="request__title title">Оставить заявку</h2>
-
-				<form action="#" class="request__form">
-					<div class="form-group">
-						<label for="name">Имя</label>
-						<input type="text" id="name" name="name">
-					</div>
-					<div class="form-group">
-						<label for="phone">Телефон</label>
-						<input type="tel" id="phone" name="phone">
-					</div>
-					<div class="form-group">
-						<label for="friend">Кого бы вы хотели забрать</label>
-						<input type="text" id="friend" name="friend">
-					</div>
-					<button type="submit" class="form__button button">#Найти друга</button>
-				</form>
-
-				<p class="request__description">
-					Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
-				</p>
-			</div>
-		</section>
 	</main>
 
 {% endblock content %}

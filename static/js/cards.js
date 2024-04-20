@@ -2,6 +2,7 @@ import { allExhibitions } from "./getAllExhibitions"
 import { currentExhibition } from "./getCurrentExhibition"
 import {formatDays, formatMonth} from "./functions"
 
+
 const participants = currentExhibition.participants
 
 if(window.location.href.includes("participants")){
@@ -21,7 +22,7 @@ function showParticipants(){
 	function showParticipantCard(card, index){
 		const cardContainer = document.createElement("a")
 		cardContainer.classList.add("card")
-		cardContainer.href = `/templates/config/pages/portfolio.html?id=${card.id}`
+		cardContainer.href = `/portfolio/?id=${card.id}`
 
 		cardContainer.innerHTML = `
 		<div class="card__description">
@@ -47,7 +48,7 @@ function showExhibitions(){
 	function showExhibitionCard(card, index){
 		const cardContainer = document.createElement("a")
 		cardContainer.classList.add("card")
-		cardContainer.href = `/templates/config/pages/past.html?id=${card.id}`
+		cardContainer.href = `/templates/config/pages/past.html?id=${card.id}` /* /exhibitions/?id=${card.id} */
 	
 		cardContainer.innerHTML = `
 		<div class="card__description">

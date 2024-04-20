@@ -7,43 +7,9 @@
 
 {% block content %}
 
-	<header class="header">
-		<div class="header__container">
-			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
-			<nav class="header__navigation header__navigation_desktop">
-				<ul class="navigation__list">
-					<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-					<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-					<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-				</ul>
-			</nav>
-
-			<div class="header__navigation_mobile">
-				<input id="toggle" type="checkbox"></input>
-
-				<label for="toggle" class="hamburger">
-					<div class="top-bun"></div>
-					<div class="meat"></div>
-					<div class="bottom-bun"></div>
-				</label>
-
-				<div class="navigation__container">
-					<nav class="navigation__content">
-						<ul class="navigation__list">
-							<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-
-		</div>
-	</header>
-
 	<main class="main">
 		<div class="main__navbar">
-			<a href="/templates/config/index.html">Главная</a>
+			<a href="{% url 'home' %}">Главная</a>
 		</div>
 
 		<section	class="main__portfolio">
@@ -79,16 +45,7 @@
 						<p class="portfolio__description__title">Пол</p>
 						<p class="portfolio__description__text portfolio__description__sex">Кобель</p>
 					</div>
-
-					<div class="description__temper description__item">
-						<p class="portfolio__description__title">Характер</p>
-						<p class="portfolio__description__text portfolio__description__temper">Независимый и самостоятельный котик. Он может быть спокойным и умиротворенным, оставаясь при этом независимым от посторонних.</p>
-					</div>
-
-					<div class="description__talent description__item">
-						<p class="portfolio__description__title">Талант</p>
-						<p class="portfolio__description__text portfolio__description__talent">Видный и солидный</p>
-					</div>
+					
 					<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>
 				</div>
 			</div>
@@ -109,6 +66,10 @@
 								<div class="form-group">
 									<label for="email">Почта</label>
 									<input type="email" id="phone" name="email" required>
+								</div>
+								<div class="form-group">
+									<label for="friend">Кого бы вы хотели забрать</label>
+									<input type="text" id="friend" name="friend" required value="">
 								</div>
 								<button type="submit" class="form__button button">Отправить заявку</button>
 							</form>

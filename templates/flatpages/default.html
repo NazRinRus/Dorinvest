@@ -23,13 +23,46 @@
   </head>
 
   <body>
+  <!-- header-->
+	<header class="header">
+		<div class="header__container">
+			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+			<nav class="header__navigation header__navigation_desktop">
+				<ul class="navigation__list">
+					<li class="navigation__list__item "><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+					<li class="navigation__list__item"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+					<li class="navigation__list__item"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
+				</ul>
+			</nav>
+			
+			<div class="header__navigation_mobile">
+				<input id="toggle" type="checkbox"></input>
+
+				<label for="toggle" class="hamburger">
+					<div class="top-bun"></div>
+					<div class="meat"></div>
+					<div class="bottom-bun"></div>
+				</label>
+
+				<div class="navigation__container">
+					<nav class="navigation__content">
+						<ul class="navigation__list">
+							<li class="navigation__list__item"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+							<li class="navigation__list__item"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+							<li class="navigation__list__item"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</div>
+	</header>
   <!-- Page content-->
   {% block content %}
 
   {% endblock content %}
 
   {% include 'flatpages/footer.html' %}
-  	<script  src="/static/dist/main.js"></script>
     <script  src="{% static 'dist/main.js' %}"></script>
   </body>
 </html>

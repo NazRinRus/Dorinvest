@@ -7,40 +7,6 @@
 
 {% block content %}
 
-	<header class="header">
-		<div class="header__container">
-			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
-			<nav class="header__navigation header__navigation_desktop">
-				<ul class="navigation__list">
-					<li class="navigation__list__item navigation__list__item_active"><a href="" class="navigation__link">О выставке</a></li>
-					<li class="navigation__list__item"><a href="/participants" class="navigation__link" target="_blank">Участники</a></li>
-					<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-				</ul>
-			</nav>
-
-			<div class="header__navigation_mobile">
-				<input id="toggle" type="checkbox"></input>
-
-				<label for="toggle" class="hamburger">
-					<div class="top-bun"></div>
-					<div class="meat"></div>
-					<div class="bottom-bun"></div>
-				</label>
-
-				<div class="navigation__container">
-					<nav class="navigation__content">
-						<ul class="navigation__list">
-							<li class="navigation__list__item"><a href="" class="navigation__link">О выставке</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/participants.html" class="navigation__link" target="_blank">Участники</a></li>
-							<li class="navigation__list__item"><a href="/templates/config/pages/all-exhibitions.html" class="navigation__link" target="_blank">Фотоотчёт</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-
-		</div>
-	</header>
-
 	<main>
 		<section class="hero">
 			<span class="hero__background_span">Забери меня<br>домой!</span>
@@ -78,17 +44,15 @@
 		<section class="participants">
 			<h2 class="participants__title title">Участники</h2>
 			<div class="participants__gallery">
-<!-- 					<div class="participants__gallery__item participants__gallery__item-1">
-					<img src="/static/images/plug.jpg" alt="" loading="lazy">
-				</div> -->
-				<a class="participants__button card__button" href="/templates/config/pages/participants.html" target="_blank">#Посмотреть всех участников</a>
+				
+				<a class="participants__button card__button" href="{% url 'participants' %}">#Посмотреть всех участников</a>
 			</div>
 		</section>
 
 		<section class="past">
 			<h2 class="past__title title">Прошлые выставки</h2>
 			<div class="past__gallery">
-				<a class="past__button card__button" href="/templates/config/pages/all-exhibitions.html" target="_blank">#Все выставки</a>
+				<a class="past__button card__button" href="{% url 'exhibitions' %}" >#Все выставки</a>
 			</div>
 		</section>
 
@@ -111,36 +75,7 @@
 
 		</section>
 
-		<section class="request" id="request">
-
-			<div class="request__container">
-				<h2 class="request__title title">Оставить заявку</h2>
-
-				<form action="{% url 'api:feedback' %}" method="POST" class="request__form">
-					<div class="form-group">
-						<label for="name">Имя</label>
-						<input type="text" id="name" name="name" required>
-					</div>
-					<div class="form-group">
-						<label for="phone">Телефон</label>
-						<input type="tel" id="phone" name="phone" required>
-					</div>
-					<div class="form-group">
-						<label for="email">Почта</label>
-						<input type="email" id="phone" name="email" required>
-					</div>
-					<div class="form-group">
-						<label for="friend">Кого бы вы хотели забрать</label>
-						<input type="text" id="friend" name="friend" required>
-					</div>
-					<button type="submit" class="form__button button">#Найти друга</button>
-				</form>
-
-				<p class="request__description">
-					Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
-				</p>
-			</div>
-		</section>
+		{% include 'flatpages/application.html' %}
 
 		<section class="adviсe">
 			<h2 class="adviсe__title title">Полезная информация</h2>
@@ -149,7 +84,7 @@
 				<div class="swiper swiper-adviсe">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a href="">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=47" target="_blank">
 								<div class="slide__content">
 									<div class="slide__content__background"></div>
 									<div class="slide__content__text">Виды наполнителей для туалетов домашних питомцев</div>
@@ -158,7 +93,7 @@
 							</a>
 						</div>
 						<div class="swiper-slide">
-							<a href="">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=45&sphrase_id=5018" target="_blank">
 								<div class="slide__content">
 									<div class="slide__content__background"></div>
 									<div class="slide__content__text">Прививки собакам и кошкам</div>
@@ -167,7 +102,7 @@
 							</a>
 						</div>
 						<div class="swiper-slide">
-							<a href="">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=44" target="_blank">
 								<div class="slide__content">
 									<div class="slide__content__background"></div>
 									<div class="slide__content__text">Как правильно организовать кормление кошки</div>
@@ -176,16 +111,16 @@
 							</a>
 						</div>
 						<div class="swiper-slide">
-							<a href="">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=39" target="_blank">
 								<div class="slide__content">
 									<div class="slide__content__background"></div>
-									<div class="slide__content__text">Дрессировка собак</div>
+									<div class="slide__content__text">Дрессировка собаки</div>
 									<img src="/static/images/advice/img-4.jpg" alt="">
 								</div>
 							</a>
 						</div>
 						<div class="swiper-slide">
-							<a href="">
+							<a href="https://www.pan-vet.ru/" target="_blank">
 								<div class="slide__content">
 									<div class="slide__content__background"></div>
 									<div class="slide__content__text">Ветеринарная клиника</div>
@@ -218,13 +153,10 @@
 				</div>
 				<div class="partners__swiper__container">
 					<div class="swiper swiper-partners">
-						<div class="swiper-wrapper partners__swiper-wrapper">
-
-						</div>
-
+						<div class="swiper-wrapper partners__swiper-wrapper"></div>
 					</div>
 			</div>
 		</section>
 	</main>
-
+	
 {% endblock content %}

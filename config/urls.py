@@ -30,6 +30,7 @@ urlpatterns += [
     path('', IndexView.as_view(), name='home'),
     path('participants/', ParticipantsView.as_view(), name='participants'),
     path('exhibitions/', AllExhibitionsView.as_view(), name='exhibitions'),
+    path('portfolio/<int:pk>/', PortfolioView.as_view(), name='portfolio_detail'),
     path('portfolio/', PortfolioView.as_view(), name='portfolio'),
     path('past/', PastView.as_view(), name='past'),
 ]
