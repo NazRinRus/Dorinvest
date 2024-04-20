@@ -24,12 +24,12 @@
   <!-- header-->
 	<header class="header">
 		<div class="header__container">
-			<a href="#"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+			<a href="{% url 'home' %}"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
 			<nav class="header__navigation header__navigation_desktop">
 				<ul class="navigation__list">
-					<li class="navigation__list__item "><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
-					<li class="navigation__list__item"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
-					<li class="navigation__list__item"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
+					<li class="navigation__list__item link__home"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+					<li class="navigation__list__item link__participants"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+					<li class="navigation__list__item link__photoreport"><a href="{% url 'past' %}" class="navigation__link ">Фотоотчёт</a></li>
 				</ul>
 			</nav>
 			
@@ -45,9 +45,9 @@
 				<div class="navigation__container">
 					<nav class="navigation__content">
 						<ul class="navigation__list">
-							<li class="navigation__list__item"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
-							<li class="navigation__list__item"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
-							<li class="navigation__list__item"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
+							<li class="navigation__list__item link__home"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+							<li class="navigation__list__item link__participants"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+							<li class="navigation__list__item link__photoreport"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -60,6 +60,8 @@
 
   {% endblock content %}
 
+
+  {% include 'flatpages/back_to_top.html' %}
   {% include 'flatpages/footer.html' %}
     <script  src="{% static 'dist/main.js' %}"></script>
   </body>

@@ -30,25 +30,30 @@
 				</div>
 
 				<div class="portfolio__description">
-					<h1 class="portfolio__name">Мурзик</h1>
+					<h1 class="portfolio__name"></h1>
 					<div class="description__breed description__item">
 						<p class="portfolio__description__title">Порода</p>
-						<p class="portfolio__description__text portfolio__description__breed">Балинезийская кошка</p>
+						<p class="portfolio__description__text portfolio__description__breed"></p>
 					</div>
 
 					<div class="description__color description__item">
 						<p class="portfolio__description__title">Цвет</p>
-						<p class="portfolio__description__text portfolio__description__color">Черный с белой грудкой</p>
+						<p class="portfolio__description__text portfolio__description__color"></p>
 					</div>
 
 					<div class="description__age description__item">
 						<p class="portfolio__description__title">Возраст</p>
-						<p class="portfolio__description__text portfolio__description__age">2 года</p>
+						<p class="portfolio__description__text portfolio__description__age"></p>
 					</div>
 
 					<div class="description__sex description__item">
 						<p class="portfolio__description__title">Пол</p>
-						<p class="portfolio__description__text portfolio__description__sex">Кобель</p>
+						<p class="portfolio__description__text portfolio__description__sex"></p>
+					</div>
+
+					<div class="description__other description__item">
+						<p class="portfolio__description__title">Описание</p>
+						<p class="portfolio__description__text portfolio__description__other"></p>
 					</div>
 					
 					<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>
@@ -59,9 +64,9 @@
 		<div class="hystmodal" id="myModal" aria-hidden="true">
 			<div class="hystmodal__wrap">
 					<div class="hystmodal__window" role="dialog" aria-modal="true">
-							<form action="{% url 'api:feedback' %}" method="post" class="hystmodal__form">
+							<form action="{% url 'api:feedback'%}" method="post" class="hystmodal__form">
 								<div class="form-group">
-									<label for="name">Ваше имя</label>
+									<label for="name">ФИО</label>
 									<input type="text" id="name" name="name" required>
 								</div>
 								<div class="form-group">
@@ -73,7 +78,7 @@
 									<input type="email" id="email" name="email" required>
 								</div>
 								<div class="form-group form-group_auto-fill">
-									<label for="friend">Кого бы вы хотели забрать</label>
+									<label for="participant">Кого бы вы хотели забрать</label>
 									<input type="text" id="participant" name="participant" required value="">
 								</div>
 								<button type="submit" class="form__button button">Отправить заявку</button>

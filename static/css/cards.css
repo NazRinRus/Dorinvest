@@ -112,6 +112,7 @@ body{
 	height: clamp(180px, 19vw, 220px);
 	border-radius: 6px;
 	overflow: hidden;
+	position: relative;
 }
 
 .card__description{
@@ -125,16 +126,18 @@ body{
 	position: relative;
 	text-align: start;
 	padding-left: 10%;
+	max-height: 220px;
 }
 
-.card__description::after{
+.card::after{
 	content: "";
 	position: absolute;
 	background: url("/static/images/icons/card_triangle.svg") no-repeat;
 	height: 27px;
 	width: 15px;
-	right: 0px;
-	transform: translateX(90%);
+	left: 50%;
+	top: 50%;
+	transform: translate(-10%, -20%);
 }
 
 .description__title{

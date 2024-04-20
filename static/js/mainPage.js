@@ -2,15 +2,18 @@ import { allExhibitions } from "./getAllExhibitions"
 import { currentExhibition } from "./getCurrentExhibition"
 import { faq } from "./getQuestions"
 import { fullStatistics } from "./getStatistics";
+import {formatDays, formatMonth, addActiveClass} from "./functions"
 
 import Accordion from '/static/js/accordion.min.js';
 import '/static/css/accordion.min.css';
 
+
+Array.from(document.querySelectorAll(".link__photoreport")).forEach((item)=>{item.firstChild.href = `/past/?id=${currentExhibition.id}`})
+
+
 if(window.location.href === "http://127.0.0.1:8000/"){
 	const nowExhibition = currentExhibition
-
-	//console.log(currentExhibition)
-	
+	addActiveClass(".link__home")
 // HERO
 
 document.querySelector(".hero__info__title").innerHTML = nowExhibition.name
@@ -26,20 +29,29 @@ document.querySelector(".about__description__text").innerHTML = nowExhibition.ab
 // PARTICIPANTS
 
 const participantsGallery = document.querySelector(".participants__gallery")
-const participantsphotos = nowExhibition.exhibition_foto
+const participantsphotos = nowExhibition.participants
 
 participantsphotos.forEach((item, index)=>{
-	//console.log(item.foto)
+	if(index > 11) return
 	showParticipantsPhoto(item, index)
 })
 
-//ФОТО НЕ ГРУЗИТ
+if (participantsphotos.length < 11){
+	for(let i = participantsphotos.length; i < 11; i++){
+		const participantsContainer = document.createElement("div")
+		participantsGallery.classList.add("past__gallery__item")
+		participantsGallery.classList.add(`past__gallery__item-${i + 1}`)
+
+		participantsContainer.innerHTML = `<img src="/static/images/reserve/reserve-photo-${i}.jpg" alt="" loading="lazy">`
+		participantsGallery.appendChild(participantsContainer) 
+	}
+}
 
 function showParticipantsPhoto(photo, index){
 	const photoContainer = document.createElement("div")
 	photoContainer.classList.add("participants__gallery__item")
 	photoContainer.classList.add(`participants__gallery__item-${index + 1}`)
-	photoContainer.innerHTML = `<img src="${photo.foto}">`
+	photoContainer.innerHTML = `<img src="${photo.avatar_id}">`
 	participantsGallery.appendChild(photoContainer)
 }
 
@@ -49,8 +61,8 @@ function showParticipantsPhoto(photo, index){
 const exhibitions = allExhibitions
 const exhibitionsGallery = document.querySelector(".past__gallery")
 
-
 exhibitions.forEach((item, index)=>{
+	if(!item.exhibition_foto[0]) return
 	if(index > 6) return
 	showPastExgibitions(item, index)
 })
@@ -70,7 +82,7 @@ function showPastExgibitions(exhibition, index){
 	const exhibitionContainer = document.createElement("a")
 	exhibitionContainer.classList.add("past__gallery__item")
 	exhibitionContainer.classList.add(`past__gallery__item-${index + 1}`)
-	exhibitionContainer.href = "#"
+	exhibitionContainer.href = `/past/?id=${exhibition.id}`
 
 	if(index === 0) {
 		exhibitionContainer.innerHTML = 
@@ -166,35 +178,10 @@ function showQuestions(question, index){
 		partnersContainer.appendChild(partnerContainer) 
 	}
 
+// FORM
 
-	function formatDays(exhibition){
-		const start = +(exhibition.date_begin[8]+exhibition.date_begin[9])
-		const end = +(exhibition.date_end[8]+exhibition.date_end[9])
 
-		const result = `${start}-${end}`
-		return result
-	}
 
-	function formatMonth(dateBegin){
-		const months = {
-			1: "января",
-			2: "февраля",
-			3: "марта",
-			4: "апреля",
-			5: "мая",
-			6: "июня",
-			7: "июля",
-			8: "августа",
-			9: "сентября",
-			10: "октября",
-			11: "ноября",
-			12: "декабря",
-		}
-
-		const month = +(dateBegin[5]+dateBegin[6])
-
-		return months[month]
-	}
 } else {
 }
 

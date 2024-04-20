@@ -16,7 +16,7 @@ class Exhibition(models.Model):
     date_begin = models.DateField("Дата начала выставки")
     date_end = models.DateField("Дата окончания выставки")
     time_event = models.CharField(max_length=255, null=False, verbose_name="Время проведения выставки")
-    location = models.CharField("Место проведения", max_length=30, null=False)
+    location = models.CharField("Место проведения", max_length=150, null=False)
     about = models.TextField(verbose_name="О выставке", default=ABOUT_EXHIBITION)
 
     participants = models.ManyToManyField(

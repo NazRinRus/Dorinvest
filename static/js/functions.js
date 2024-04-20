@@ -32,5 +32,11 @@ function formatMonth(dateBegin){
 
 	return months[month]
 }
+function addActiveClass(linkContainerClassName){
+	if(document.querySelector(".navigation__list__item_active")){
+		document.querySelector(".navigation__list__item_active").classList.remove("navigation__list__item_active")
+	}
+	document.querySelector(linkContainerClassName).classList.add("navigation__list__item_active")
+}
 
-export {createPhotoCard, formatDays, formatMonth}
+export {createPhotoCard, formatDays, formatMonth, addActiveClass}

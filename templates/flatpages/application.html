@@ -3,9 +3,9 @@
     <div class="request__container">
         <h2 class="request__title title">Оставить заявку</h2>
 
-        <form action="{% url 'api:feedback' %}" method="post" class="request__form">
+        <form action="{% url 'api:feedback'%}" method="post" class="request__form">
             <div class="form-group">
-                <label for="name">Имя</label>
+                <label for="name">ФИО</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
@@ -17,7 +17,7 @@
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="friend">Кого бы вы хотели забрать</label>
+                <label for="participant">Кого бы вы хотели забрать</label>
                 <input type="text" id="participant" name="participant" required>
             </div>
             <button type="submit" class="form__button button">#Найти друга</button>

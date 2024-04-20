@@ -1,12 +1,13 @@
 import { allExhibitions } from "./getAllExhibitions"
 import { currentExhibition } from "./getCurrentExhibition"
-import {formatDays, formatMonth} from "./functions"
+import {formatDays, formatMonth, addActiveClass} from "./functions"
 
 
 const participants = currentExhibition.participants
 
 if(window.location.href.includes("participants")){
 	showParticipants()
+	addActiveClass(".link__participants")
 } else if(window.location.href.includes("exhibitions")) {
 	showExhibitions()
 }	
@@ -18,8 +19,9 @@ function showParticipants(){
 	participantCards.forEach((item, index)=>{
 		showParticipantCard(item, index)
 	})
-
+	
 	function showParticipantCard(card, index){
+
 		const cardContainer = document.createElement("a")
 		cardContainer.classList.add("card")
 		cardContainer.href = `/portfolio/?id=${card.id}`
@@ -27,7 +29,6 @@ function showParticipants(){
 		cardContainer.innerHTML = `
 		<div class="card__description">
 			<h2 class="description__title title">${card.name}</h2>
-			<p class="description__text">${card.other}</p>
 		</div>
 		<div class="card__image">
 			<img src="${card.avatar_id}" alt="">

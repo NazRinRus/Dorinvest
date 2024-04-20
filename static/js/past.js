@@ -1,8 +1,9 @@
 import { allExhibitions } from "./getAllExhibitions"
-import {createPhotoCard, formatDays, formatMonth} from "./functions"
+import {createPhotoCard, formatDays, formatMonth, addActiveClass} from "./functions"
 import { getStatistics } from "./getStatistics";
 
 if(window.location.href.includes("past")){
+	addActiveClass(".link__photoreport")
 	const exhibitions = new Map()
 	allExhibitions.forEach((item)=>{
 		exhibitions.set(item.id, item)
