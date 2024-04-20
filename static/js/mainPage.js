@@ -97,8 +97,9 @@ function showPastExgibitions(exhibition, index){
 
 // STATISTICS
 
-document.querySelector(".cats__number").innerHTML = fullStatistics.Кошка
-document.querySelector(".dogs__number").innerHTML = fullStatistics.Собака
+
+document.querySelector(".cats__number").innerHTML = fullStatistics.кошка
+document.querySelector(".dogs__number").innerHTML = fullStatistics.собака
 
 
 // QUESTIONS
@@ -195,7 +196,6 @@ function showQuestions(question, index){
 		return months[month]
 	}
 } else {
-	console.log(1)
 }
 
 

@@ -5,6 +5,11 @@
 Карточка участника
 {% endblock title %}
 
+{% block style %} 
+<link rel="stylesheet" href="/static/css/reset.css"/>
+<link rel="stylesheet" href="/static/css/portfolio.css"/>
+{% endblock style %}
+
 {% block content %}
 
 	<main class="main">
@@ -54,7 +59,7 @@
 		<div class="hystmodal" id="myModal" aria-hidden="true">
 			<div class="hystmodal__wrap">
 					<div class="hystmodal__window" role="dialog" aria-modal="true">
-							<form action="#" class="hystmodal__form">
+							<form action="{% url 'api:feedback' %}" method="post" class="hystmodal__form">
 								<div class="form-group">
 									<label for="name">Ваше имя</label>
 									<input type="text" id="name" name="name" required>
@@ -65,11 +70,11 @@
 								</div>
 								<div class="form-group">
 									<label for="email">Почта</label>
-									<input type="email" id="phone" name="email" required>
+									<input type="email" id="email" name="email" required>
 								</div>
-								<div class="form-group">
+								<div class="form-group form-group_auto-fill">
 									<label for="friend">Кого бы вы хотели забрать</label>
-									<input type="text" id="friend" name="friend" required value="">
+									<input type="text" id="participant" name="participant" required value="">
 								</div>
 								<button type="submit" class="form__button button">Отправить заявку</button>
 							</form>

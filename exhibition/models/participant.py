@@ -12,7 +12,7 @@ def get_image_path(instance,
 
 
 class TypeParticipant(models.Model):
-    code = models.CharField('Код', max_length=3, primary_key=True)
+    code = models.CharField('Код', max_length=10, primary_key=True)
     name = models.CharField("Вид животного", max_length=30, null=False)
     sort = models.PositiveSmallIntegerField('Сортировка', null=True, blank=True)
     is_active = models.BooleanField("Активность", default=True)

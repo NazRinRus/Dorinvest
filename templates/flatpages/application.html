@@ -3,7 +3,7 @@
     <div class="request__container">
         <h2 class="request__title title">Оставить заявку</h2>
 
-        <form action="#" class="request__form">
+        <form action="{% url 'api:feedback' %}" method="post" class="request__form">
             <div class="form-group">
                 <label for="name">Имя</label>
                 <input type="text" id="name" name="name" required>
@@ -14,11 +14,11 @@
             </div>
             <div class="form-group">
                 <label for="email">Почта</label>
-                <input type="email" id="phone" name="email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="friend">Кого бы вы хотели забрать</label>
-                <input type="text" id="friend" name="friend" required>
+                <input type="text" id="participant" name="participant" required>
             </div>
             <button type="submit" class="form__button button">#Найти друга</button>
         </form>

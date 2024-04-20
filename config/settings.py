@@ -152,7 +152,6 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
 ########################################
 # STATICFILES_DIRS #####################
 ########################################
@@ -261,9 +260,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', default=' ')
 EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default=' ')
-EMAIL_PORT = env.int('EMAIL_PORT', default=2525)
+EMAIL_PORT = env.int('EMAIL_PORT')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-WORKER_LIST = [
-    EMAIL_HOST_USER,
-]  # Список с почтами сотрудников куда будут приходить письма-заявки на получение питомцев
+WORKER_LIST = env.str('WORKER_LIST', default='').split(
+    ' ')  # Список с почтами сотрудников куда будут приходить письма-заявки на получение питомцев

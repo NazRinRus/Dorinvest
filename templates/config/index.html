@@ -5,6 +5,10 @@
 Выставка
 {% endblock title %}
 
+{% block style %} 
+<link rel="stylesheet" href="/static/dist/main.css"/>
+{% endblock style %}
+
 {% block content %}
 
 	<main>
@@ -44,7 +48,7 @@
 		<section class="participants">
 			<h2 class="participants__title title">Участники</h2>
 			<div class="participants__gallery">
-				
+
 				<a class="participants__button card__button" href="{% url 'participants' %}">#Посмотреть всех участников</a>
 			</div>
 		</section>

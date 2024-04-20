@@ -8,6 +8,7 @@ if(window.location.href.includes("portfolio")){
 	});
 	
 	showPortfolio()
+	autoFillModal()
 } 
 
 function showPortfolio(){
@@ -29,3 +30,8 @@ function showPortfolio(){
 	document.querySelector(".portfolio__description__age").innerHTML = `${portfolio.breed.code}`
 	document.querySelector(".portfolio__description__sex").innerHTML = `${portfolio.breed.code}`
 }
+
+	function autoFillModal(){
+		const input = document.querySelector("#participant")
+		input.value = document.querySelector(".portfolio__name").innerHTML + " " + window.location.href
+	}

@@ -48,7 +48,7 @@ function showExhibitions(){
 	function showExhibitionCard(card, index){
 		const cardContainer = document.createElement("a")
 		cardContainer.classList.add("card")
-		cardContainer.href = `/templates/config/pages/past.html?id=${card.id}` /* /exhibitions/?id=${card.id} */
+		cardContainer.href = `/past/?id=${card.id}`
 	
 		cardContainer.innerHTML = `
 		<div class="card__description">

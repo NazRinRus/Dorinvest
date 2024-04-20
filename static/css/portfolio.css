@@ -272,6 +272,10 @@ body{
 	width: 100%;
 }
 
+.form-group_auto-fill{
+	display: none;
+}
+
 .form-group label{
 	align-self: flex-start;
 	transform: translate(20px, 50%);

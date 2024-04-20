@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.shortcuts import redirect
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema_view, extend_schema
 from rest_framework import status
@@ -57,10 +58,6 @@ class ExhibitionAPIRetrieve(generics.RetrieveAPIView):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = "__all__"
 
-    # def get_queryset(self):
-    #     qs = Exhibition.objects.all().prefetch_related('exhibition_foto')
-    #     return qs
-
 
 @extend_schema_view(
     get=extend_schema(summary='Ближайшая или текущая выставка', tags=['Выставки'])
@@ -73,7 +70,6 @@ class ExhibitionNowAPIRetrieve(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         qs = Exhibition.objects.filter(date_end__gte=datetime.now()).order_by('date_end')[:1]
-        print(type(qs), qs)
         return qs
 
     def get(self, request, *args, **kwargs):
@@ -206,7 +202,8 @@ class FeedbackAPIView(viewsets.ModelViewSet):
             }
             send_message(db=db)
 
-            return Response({'message': 'Feedback created successfully'}, status=status.HTTP_201_CREATED)
+            # return Response({'message': 'Feedback created successfully'}, status=status.HTTP_201_CREATED)
+            return redirect(request.META.get('HTTP_REFERER'))
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

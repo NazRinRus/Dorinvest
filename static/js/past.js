@@ -25,6 +25,8 @@ function showPhotos(exhibition){
 }
 
 async function showStatistics(exhibitionID){
-	document.querySelector(".cats__number").innerHTML = await getStatistics(exhibitionID).кошки
-	document.querySelector(".dogs__number").innerHTML = await getStatistics(exhibitionID).собаки
+	const numbersOfPets = await getStatistics(exhibitionID)
+
+	document.querySelector(".cats__number").innerHTML = numbersOfPets.кошка
+	document.querySelector(".dogs__number").innerHTML = numbersOfPets.собака
 }
