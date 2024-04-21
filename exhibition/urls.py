@@ -27,5 +27,5 @@ urlpatterns += [
 # Other (Feedback, FAQ)
 urlpatterns += [
     path('faq/', exhibition.FAQAPIList.as_view(), name='faq'),
-    path('feedback/', exhibition.FeedbackAPIView.as_view({'get': 'list', 'post': 'create'}), name='feedback'),
+    path('feedback/', exhibition.FeedbackAPIView.as_view(), name='feedback'),
 ]

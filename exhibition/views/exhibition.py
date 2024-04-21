@@ -179,33 +179,30 @@ class FAQAPIList(generics.ListAPIView):
 @extend_schema_view(
     get=extend_schema(summary='Заявки на получение питомца', tags=['Feedback'])
 )
-class FeedbackAPIView(viewsets.ModelViewSet):
+class FeedbackAPIView(generics.ListCreateAPIView):
     """API для создания заявки на получение питомца и отправки её на почту."""
-    queryset = Feedback.objects.all()  # добавляем queryset
+    queryset = Feedback.objects.all()
     serializer_class = FeedbackSerializer
 
     def create(self, request, *args, **kwargs):
-        serializer = FeedbackSerializer(data=request.data)
-        if serializer.is_valid():
-            name = serializer.validated_data.get('name')
-            phone = serializer.validated_data.get('phone')
-            email = serializer.validated_data.get('email')
-            participant = serializer.validated_data.get('participant')
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return redirect(request.META.get('HTTP_REFERER'))
 
-            feedback = Feedback(name=name, phone=phone, participant=participant, email=email)
-            feedback.save()
-            db = {
-                'name': name,
-                'phone': phone,
-                'participant': participant,
-                'email': email,
-            }
-            send_message(db=db)
+    def perform_create(self, serializer):
+        name = serializer.validated_data.get('name')
+        phone = serializer.validated_data.get('phone')
+        email = serializer.validated_data.get('email')
+        participant = serializer.validated_data.get('participant')
 
-            # return Response({'message': 'Feedback created successfully'}, status=status.HTTP_201_CREATED)
-            return redirect(request.META.get('HTTP_REFERER'))
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+        feedback = Feedback(name=name, phone=phone, participant=participant, email=email)
+        feedback.save()
+        db = {
+            'name': name,
+            'phone': phone,
+            'participant': participant,
+            'email': email,
+        }
+        send_message(db=db)

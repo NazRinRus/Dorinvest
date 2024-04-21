@@ -41,6 +41,21 @@ class BreedParticipant(models.Model):
         return f'{self.name} ({self.code})'
 
 
+class TalentParticipant(models.Model):
+    code = models.CharField('Код', max_length=3, primary_key=True)
+    name = models.CharField("Талант", max_length=60, null=False)
+    sort = models.PositiveSmallIntegerField('Сортировка', null=True, blank=True)
+    is_active = models.BooleanField("Активность", default=True)
+
+    class Meta:
+        verbose_name = 'Талант'
+        verbose_name_plural = 'Таланты'
+        ordering = ('name',)
+
+    def __str__(self):
+        return f'{self.name} ({self.code})'
+
+
 class Participant(models.Model):
     GENDER = [
         ('boy', 'Мальчик'),
@@ -58,6 +73,9 @@ class Participant(models.Model):
     )
     breed = models.ForeignKey(
         'BreedParticipant', models.RESTRICT, 'participant_breed', verbose_name='Порода'
+    )
+    talent = models.ForeignKey(
+        'TalentParticipant', models.RESTRICT, 'participant_talent', verbose_name='Талант'
     )
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path, blank=True, null=True)
 

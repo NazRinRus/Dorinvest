@@ -32,7 +32,7 @@ class ParticipantInline(TabularInline):
 ##################################################
 @admin.register(exhibition.Exhibition)
 class ExhibitionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'time_event', 'location', 'about')
+    list_display = ('id', 'name', 'bunner', 'date_begin', 'date_end', 'time_event', 'location', 'venue', 'about')
 
     inlines = (ExhibitionFotoInline, PartnersInline, ParticipantInline)
 
@@ -44,7 +44,7 @@ class ExhibitionFotoAdmin(admin.ModelAdmin):
 
 @admin.register(participant.Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'color', 'other', 'type_p', 'breed', 'avatar_id',)
+    list_display = ('id', 'name', 'color', 'other', 'type_p', 'breed', 'talent', 'avatar_id',)
 
     inlines = (ParticipantFotoInline,)
 
@@ -56,6 +56,11 @@ class ParticipantTypeAdmin(admin.ModelAdmin):
 
 @admin.register(participant.BreedParticipant)
 class ParticipantBreedAdmin(admin.ModelAdmin):
+    list_display = ('code', 'name', 'sort', 'is_active',)
+
+
+@admin.register(participant.TalentParticipant)
+class ParticipantTalentAdmin(admin.ModelAdmin):
     list_display = ('code', 'name', 'sort', 'is_active',)
 
 
