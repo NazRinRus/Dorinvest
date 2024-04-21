@@ -109,7 +109,7 @@ body{
 	grid-template-columns: 1fr 1fr;
 	max-width: 566px;
 	min-width: 350px;
-	height: clamp(180px, 19vw, 220px);
+	height: clamp(180px, 20vw, 220px);
 	border-radius: 6px;
 	overflow: hidden;
 	position: relative;
@@ -153,6 +153,10 @@ body{
 	font-size: clamp(18px, 2.1vw, 20px);;
 }
 
+.card__image {
+	overflow: hidden;
+}
+
 .card__image img{
 	width: 100%;
 	height: 100%;
@@ -168,7 +172,7 @@ body{
 	.card{
 		max-width: none;
 		min-width: 300px;
-		height: clamp(138px, 38vw, 280px);
+		height: clamp(150px, 26vw, 220px);
 	}
 
 	.card__description{
@@ -192,5 +196,5 @@ body{
 
 /* =================== REQUEST ===================*/
 .request{
-	background-color: inherit;
+	margin-bottom: 0;
 }

@@ -21,7 +21,7 @@ document.querySelector(".hero__info__description").innerHTML = nowExhibition.des
 document.querySelector(".hero__date__days").innerHTML = formatDays(nowExhibition)
 document.querySelector(".hero__date__month").innerHTML =  formatMonth(nowExhibition.date_begin)
 document.querySelector(".hero__date__time").innerHTML = nowExhibition.time_event
-document.querySelector(".hero__place").innerHTML = nowExhibition.location
+document.querySelector(".hero__place").innerHTML = nowExhibition.location + " район Новоленинский, дом.1"
 document.querySelector(".about__description__text").innerHTML = nowExhibition.about
 
 //console.log(nowExhibition.exhibition_foto)
@@ -170,7 +170,7 @@ function showQuestions(question, index){
 		partnerContainer.classList.add("partners__swiper-slide")
 			
 		partnerContainer.innerHTML = 
-		`<a href="${partner.website}">
+		`<a href="${partner.website}" target="_blank">
 			<div class="slide__content partners__slide__content ">
 				<img src="${partner.logo}" alt="" loading="lazy">
 			</div>

@@ -144,7 +144,6 @@ body{
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 420px;
 	gap: 20px;
 	flex: 2;
 }
@@ -222,7 +221,6 @@ body{
 
 	.portfolio__description{
 		align-self: flex-start;
-		max-width: none;
 	}
 
 	.portfolio__description__title {
