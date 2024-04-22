@@ -10,21 +10,45 @@ import '/static/css/accordion.min.css';
 
 Array.from(document.querySelectorAll(".link__photoreport")).forEach((item)=>{item.firstChild.href = `/past/?id=${currentExhibition.id}`})
 
+window.onscroll = function() {scrollFunction()};
+const scrollButton = document.querySelector(".scroll-to-top")
+
+function scrollFunction() {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+			scrollButton.style.display = "block";
+    } else {
+			scrollButton.style.display = "none";
+    }
+}
+
+scrollButton.addEventListener("click", ()=>{
+	scrollToTop()
+})
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 
 if(window.location.href === "http://127.0.0.1:8000/"){
 	const nowExhibition = currentExhibition
 	addActiveClass(".link__home")
 // HERO
-
+if(nowExhibition.bunner){
+	document.querySelector(".hero__background").src = nowExhibition.bunner
+	document.querySelector(".hero__background-span").remove()
+} else{
+	document.querySelector(".hero__background").src = "/static/images/banner.jpg"
+	document.querySelector(".hero__background-span").style.display = "block"
+}
 document.querySelector(".hero__info__title").innerHTML = nowExhibition.name
 document.querySelector(".hero__info__description").innerHTML = nowExhibition.description
 document.querySelector(".hero__date__days").innerHTML = formatDays(nowExhibition)
 document.querySelector(".hero__date__month").innerHTML =  formatMonth(nowExhibition.date_begin)
 document.querySelector(".hero__date__time").innerHTML = nowExhibition.time_event
-document.querySelector(".hero__place").innerHTML = nowExhibition.location + " район Новоленинский, дом.1"
+document.querySelector(".hero__place").innerHTML = nowExhibition.location
 document.querySelector(".about__description__text").innerHTML = nowExhibition.about
 
-//console.log(nowExhibition.exhibition_foto)
 
 // PARTICIPANTS
 
@@ -32,15 +56,15 @@ const participantsGallery = document.querySelector(".participants__gallery")
 const participantsphotos = nowExhibition.participants
 
 participantsphotos.forEach((item, index)=>{
-	if(index > 11) return
+	if(index > 8) return
 	showParticipantsPhoto(item, index)
 })
 
-if (participantsphotos.length < 11){
-	for(let i = participantsphotos.length; i < 11; i++){
+if (participantsphotos.length < 9){
+	for(let i = participantsphotos.length; i < 9; i++){
 		const participantsContainer = document.createElement("div")
-		participantsGallery.classList.add("past__gallery__item")
-		participantsGallery.classList.add(`past__gallery__item-${i + 1}`)
+		participantsContainer.classList.add("past__gallery__item")
+		participantsContainer.classList.add(`past__gallery__item-${i + 1}`)
 
 		participantsContainer.innerHTML = `<img src="/static/images/reserve/reserve-photo-${i}.jpg" alt="" loading="lazy">`
 		participantsGallery.appendChild(participantsContainer) 
@@ -51,7 +75,10 @@ function showParticipantsPhoto(photo, index){
 	const photoContainer = document.createElement("div")
 	photoContainer.classList.add("participants__gallery__item")
 	photoContainer.classList.add(`participants__gallery__item-${index + 1}`)
-	photoContainer.innerHTML = `<img src="${photo.avatar_id}">`
+
+	if(photo.avatar_id === null) photoContainer.innerHTML = `<img src="${photo.participant_foto[0].foto}">`
+	else photoContainer.innerHTML = `<img src="${photo.avatar_id}">`
+	
 	participantsGallery.appendChild(photoContainer)
 }
 
@@ -59,11 +86,10 @@ function showParticipantsPhoto(photo, index){
 // PAST
 
 const exhibitions = allExhibitions
+exhibitions.shift()
 const exhibitionsGallery = document.querySelector(".past__gallery")
-
 exhibitions.forEach((item, index)=>{
-	if(!item.exhibition_foto[0]) return
-	if(index > 6) return
+	if(index > 5) return
 	showPastExgibitions(item, index)
 })
 
@@ -83,6 +109,9 @@ function showPastExgibitions(exhibition, index){
 	exhibitionContainer.classList.add("past__gallery__item")
 	exhibitionContainer.classList.add(`past__gallery__item-${index + 1}`)
 	exhibitionContainer.href = `/past/?id=${exhibition.id}`
+	let  exhibitionPhoto
+	if(exhibition.exhibition_foto[0] === undefined) exhibitionPhoto = `static/images/reserve/reserve-photo-${index}.jpg`
+	else exhibitionPhoto = exhibition.exhibition_foto[0].foto
 
 	if(index === 0) {
 		exhibitionContainer.innerHTML = 
@@ -90,9 +119,10 @@ function showPastExgibitions(exhibition, index){
 			<div class="item__description__background"></div>
 			<div class="item__description__container">
 				<p class="item__description__date item__description__date_main">${formatDays(exhibition)} ${formatMonth(exhibition.date_begin)}</p>
+				<p class="item__description__place item__description__place_main">${exhibition.venue}</p>
 			</div>
 		</div>
-		<img src="${exhibition.exhibition_foto[0].foto}" alt="" loading="lazy">`
+		<img src="${exhibitionPhoto}" alt="" loading="lazy">`
 	}
 	else if(index > 0){
 	exhibitionContainer.innerHTML = 
@@ -100,9 +130,10 @@ function showPastExgibitions(exhibition, index){
 		<div class="item__description__background"></div>
 		<div class="item__description__container">
 			<p class="item__description__date">${formatDays(exhibition)} ${formatMonth(exhibition.date_begin)}</p>
+			<p class="item__description__place">${exhibition.venue}</p>
 		</div>
 	</div>
-	<img src="${exhibition.exhibition_foto[0].foto}" alt="" loading="lazy">`}
+	<img src="${exhibitionPhoto}" alt="" loading="lazy">`}
 	exhibitionsGallery.appendChild(exhibitionContainer) 
 }
 
@@ -110,16 +141,14 @@ function showPastExgibitions(exhibition, index){
 // STATISTICS
 
 
-document.querySelector(".cats__number").innerHTML = fullStatistics.кошка
-document.querySelector(".dogs__number").innerHTML = fullStatistics.собака
+document.querySelector(".cats__number").innerHTML = fullStatistics.кошка+192
+document.querySelector(".dogs__number").innerHTML = fullStatistics.собака+133
 
 
 // QUESTIONS
 
 const questionsContainer = document.querySelector(".accordion-container")
 const questions = faq
-
-
 
 questions.forEach((item, index)=>{
 	showQuestions(item, index)
@@ -180,7 +209,10 @@ function showQuestions(question, index){
 
 // FORM
 
-
+/* let formButton = document.querySelector(".form__button")
+formButton.addEventListener("click",(e)=>{
+	e.preventDefault()
+}) */
 
 } else {
 }

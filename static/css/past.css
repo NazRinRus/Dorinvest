@@ -1,6 +1,7 @@
 @import url("/static/css/variables.css");
 @import url("/static/css/header.css");
 @import url("/static/css/footer.css");
+@import url("/static/css/scrollToTopButton.css");
 
 @font-face {
 	font-family: "arcocyrillic";
@@ -68,6 +69,10 @@ body{
 	margin-bottom: var(--title-margin-bottom);
 }
 
+.photos__date{
+	margin: 0;
+}
+
 .photos__container{
 	display: grid;
 	grid-template-columns: repeat(3, clamp(169px, 26.7vw, 365px));
@@ -106,6 +111,8 @@ body{
 	width: 100%;
 	background-color: #fff;
 	margin: auto;
+	border-radius: 6px 6px 0 0;
+	
 }
 
 .exhibition-statistics__container{
@@ -163,4 +170,19 @@ body{
 
 .exhibition-statistics__decor{
 	width: clamp(100px, 25vw, 250px);
+}
+
+.exhibition__report{
+	width: var(--container-big);
+	margin: auto;
+	background-color: #fff;
+	padding: var(--title-margin-bottom) 0;
+}
+
+.report__container{
+	width: var(--container-small);
+	color: #000;
+	margin: auto;
+	font-size: clamp(17px, 2vw, 24px);
+	line-height: 130%;
 }

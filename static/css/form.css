@@ -13,7 +13,8 @@
 	margin: auto;
 	grid-template-areas: 
 	"title title"
-	"form description";
+	"form description"
+	"form decor";
 	justify-items: center;
 	column-gap: clamp(50px, 7vw, 98px);
 }
@@ -79,6 +80,17 @@
 	margin-top: 25px;
 }
 
+.request__decor{
+	grid-area: decor;
+	width: clamp(150px, 20vw, 285px);
+	margin-top: 20px;
+  -moz-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+
+}
+
 @media screen and (max-width:1030px) {
 	.request__container{
 		display: flex;
@@ -106,6 +118,12 @@
 		width: clamp(300px, 65vw, 650px);
     max-width: 100%;
     padding: 0;
+	}
+
+	.request__decor{
+		width: clamp(150px, 30vw, 285px);
+		margin-top: 20px;
+		align-self: self-end;
 	}
 }
 

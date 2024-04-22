@@ -3,9 +3,9 @@
     <div class="request__container">
         <h2 class="request__title title">Оставить заявку</h2>
 
-        <form action="#" class="request__form">
+        <form action="{% url 'api:feedback'%}" method="post" class="request__form">
             <div class="form-group">
-                <label for="name">Имя</label>
+                <label for="name">ФИО</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
@@ -26,5 +26,7 @@
         <p class="request__description">
             Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
         </p>
+
+        <img class="request__decor" src="/static/images/form-decor.png" alt="">
     </div>
 </section>

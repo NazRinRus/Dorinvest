@@ -2,6 +2,7 @@
 @import url("/static/css/header.css");
 @import url("/static/css/form.css");
 @import url("/static/css/footer.css");
+@import url("/static/css/scrollToTopButton.css");
 
 @font-face {
 	font-family: "arcocyrillic";
@@ -103,7 +104,6 @@ body{
 	gap: 8px;
 }
 
-
 .card{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -127,6 +127,10 @@ body{
 	text-align: start;
 	padding-left: 10%;
 	max-height: 220px;
+}
+
+.card:nth-of-type(4n+1) .card__description,.card:nth-child(4n+4) .card__description{	
+		background-color: var(--l-green);	
 }
 
 .card::after{
@@ -180,7 +184,7 @@ body{
 	}
 
 	.description__title{
-		font-size: clamp(20px, 6vw, 45px);
+		font-size: clamp(17px, 4vw, 25px);
 		margin-bottom: 0;
 	}
 	
