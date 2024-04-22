@@ -1,0 +1,36 @@
+.scroll-to-top {
+	display: none;
+	position: fixed;
+	bottom: 5%;
+	right: 5%;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #ffffff8b;
+	padding: 15px;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	transition: background-color 0.2s;
+}
+
+.scroll-to-top::after{
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 14" fill="green"><path d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z" /></svg>');
+	display: inline-block;
+	height: 50%;
+	width: 50%;
+	transform: rotate(270deg);
+	position: absolute;
+	top: 13%;
+	left: 26%;
+}
+
+@media(hover:hover){
+	.scroll-to-top {
+		background-color: #ffffffc1;
+	}
+
+	.scroll-to-top:hover {
+		background-color: #ffffffc1;
+	}	
+}
