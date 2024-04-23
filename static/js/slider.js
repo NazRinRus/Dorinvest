@@ -31,3 +31,21 @@ const swiperPartners = new Swiper('.swiper-partners', {
 		sensitivity: 10,
 	}, */
 });
+
+
+const swiperPortfolio = new Swiper('.portfolio-swiper', {
+	modules: [Navigation],
+	navigation: {
+    nextEl: '.portfolio-swiper-button-next',
+		prevEl: '.portfolio-swiper-button-prev',
+  },
+  loop: true,
+	slidesPerView: "auto",
+	watchOverflow: true,
+	spaceBetween: 20,
+	freeMode: true,
+	direction: 'vertical',
+/* 	mousewheel:{
+		sensitivity: 10,
+	}, */
+});

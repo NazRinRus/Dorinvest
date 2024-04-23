@@ -100,8 +100,21 @@ function showPlug(exhibition){
 
 function showRepot(exhibition){
 	if(!exhibition.results) return
-	let reportArea = document.createElement("div")
+	const reportArea = document.createElement("section")
 	reportArea.classList.add("exhibition__report")
-	reportArea.innerHTML = `<p class="report__container">${exhibition.results}</p>`	
+
+	const accordeon = document.createElement("div")
+	accordeon.classList.add("accordion__container")
+	accordeon.innerHTML = `
+	<label for="chk-1" class="accordion__label">				
+	<input id="chk-1" type="checkbox"/>
+	 <div class="accordion__title__container">
+			 <h3 class="accordion__title title">Результаты</h3>
+	 </div>
+		<div class="accordion__content">
+			<p class="accordion__text">${exhibition.results}</p>
+		</div>
+	</label>`	
 	document.querySelector(".main").appendChild(reportArea)	
+	reportArea.appendChild(accordeon)	
 }

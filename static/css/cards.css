@@ -144,6 +144,11 @@ body{
 	transform: translate(-10%, -20%);
 }
 
+.card:nth-of-type(4n+1)::after,.card:nth-child(4n+4)::after{	
+	background: url("/static/images/icons/card_triangle_bright.svg") no-repeat;
+}
+
+
 .description__title{
 	font-size: clamp(22px, 2.5vw, 28px);
 	margin-bottom: 0;
@@ -176,11 +181,12 @@ body{
 	.card{
 		max-width: none;
 		min-width: 300px;
-		height: clamp(150px, 26vw, 220px);
+		height: clamp(150px, 26vw, 220px);		
 	}
 
 	.card__description{
 		gap: clamp(5px, 1.3vw, 11px);
+		background-color: var(--card);
 	}
 
 	.description__title{
@@ -195,7 +201,22 @@ body{
 	.description__place{
 		font-size: clamp(16px, 4vw, 30px);;
 	}
-	
+
+	.card:nth-of-type(4n+1) .card__description,.card:nth-child(4n+4) .card__description{	
+		background-color: var(--card);	
+	}
+
+	.card:nth-of-type(4n+1)::after,.card:nth-child(4n+4)::after{	
+		background: url("/static/images/icons/card_triangle.svg") no-repeat;
+	}
+
+	.card:nth-of-type(2n+1) .card__description{	
+		background-color: var(--l-green);	
+	}
+	.card:nth-of-type(2n+1)::after{	
+		background: url("/static/images/icons/card_triangle_bright.svg") no-repeat;
+	}
+		
 }
 
 /* =================== REQUEST ===================*/

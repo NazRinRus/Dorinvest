@@ -2,6 +2,7 @@
 @import url("/static/css/header.css");
 @import url("/static/css/footer.css");
 @import url("/static/css/scrollToTopButton.css");
+@import url("/static/css/accordion.css");
 
 @font-face {
 	font-family: "arcocyrillic";
@@ -172,8 +173,11 @@ body{
 	width: clamp(100px, 25vw, 250px);
 }
 
+
+
+
 .exhibition__report{
-	width: var(--container-big);
+	max-width: 1440px;
 	margin: auto;
 	background-color: #fff;
 	padding: var(--title-margin-bottom) 0;
@@ -185,4 +189,91 @@ body{
 	margin: auto;
 	font-size: clamp(17px, 2vw, 24px);
 	line-height: 130%;
+}
+
+.accordion__container {
+  max-width: 1440px;
+  position: relative;
+}
+
+.accordion__title__container {	
+	margin: auto;
+	padding: clamp(10px, 2vw, 20px) 0;
+  position: relative;
+  background: inherit;
+  border-bottom: none;
+	transition:all .2s linear;
+	border-radius: 6px;
+	width: 100%;
+}
+
+.accordion__title {
+	width: var(--container-small);
+  margin: auto;
+	position: relative;
+}
+
+.accordion__title::after {
+	content: "";
+	background: url("/static/images/icons/report-arrow.svg") no-repeat;
+	background-size: contain;
+	display: block;
+	position: absolute;
+	height: 20px;
+	width: 40px;
+	left: clamp(100px, 40vw, 320px);
+	top: 37%;
+}
+
+
+@media screen and (hover:hover){
+	.accordion__title__container:hover{
+		cursor: pointer;
+		background: var(--l-green);
+	}
+}
+
+.accordion__content {
+  position: relative;
+  padding: 0;
+  max-height: 0px;
+	transition:max-height .7s linear;
+}
+
+.accordion__text {
+	position: relative;
+	padding: clamp(15px, 2vw, 20px) 0;	
+	width: var(--container-small);
+	margin: auto;
+	transition: all .2s ease;
+	font-size: clamp(12px, 2vw, 18px);
+	max-height: none;
+	overflow: visible;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .accordion__title__container {
+  background: var(--l-green);
+}
+
+input[type="checkbox"]:checked + .accordion__title__container + .accordion__content {
+  max-height: none;
+}
+
+input[type="checkbox"]:checked + .accordion__title__container + .accordion__content .accordion__text {
+	transform: scale(1);
+  opacity: 1;
+}
+
+@media screen and (max-width:600px) {
+	.accordion__container{
+		width: 	100%;
+	}
+} 
+
+.footer{
+	font-family: Arial, Helvetica, sans-serif;
 }

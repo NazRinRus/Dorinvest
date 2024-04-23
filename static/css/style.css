@@ -2,7 +2,7 @@
 @import url("/static/css/header.css");
 @import url("/static/css/form.css");
 @import url("/static/css/footer.css");
-@import url("/static/css/accordion.min.css");
+@import url("/static/css/accordion.css");
 @import url("/static/css/scrollToTopButton.css");
 
 
@@ -24,6 +24,7 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	background-color: var(--bg-green);
+	-webkit-font-smoothing: antialiased;
 }
 
 .button:not(.form__button){
@@ -70,6 +71,7 @@ body{
 	font-weight: 400;
 	font-size: var(--title-font-size);
 	margin-bottom: var(--title-margin-bottom);
+	line-height: normal;
 }
 
 @media screen and (max-width: 900px) {
@@ -236,12 +238,12 @@ body{
 	}
 
 	.hero__info__title{
-		font-size: clamp(25px, 6vw, 35px);
+		font-size: clamp(23px, 6vw, 35px);
 		white-space: nowrap;
 	}
 	
 	.hero__info__description{
-		font-size: clamp(12px, 3vw, 14px);
+		font-size: clamp(11px, 3vw, 14px);
 		max-width: clamp(117px, 31vw, 185px);
 	}
 
@@ -274,7 +276,7 @@ body{
 		margin:auto;
 		margin-top: 20px;
 		width: 300px;
-		height: clamp(50px, 10vw, 55px);
+		height: clamp(40px, 10vw, 55px);
 		transform: translateY(0);
 		padding-top: 3px;
 		letter-spacing: 2px;
@@ -773,7 +775,7 @@ body{
 	}
 
 	.statistics__image span{
-		font-size: clamp(7px, 1.9vw, 23px);
+		font-size: clamp(6px, 1.9vw, 23px);
 		left: 41%;
     top: 21%;
 	}
@@ -788,7 +790,6 @@ body{
 	.statistics__description__title{
 		font-size: clamp(14px, 3vw, 32px);
 		margin-bottom: clamp(20px, 4vw, 40px);
-		/* width: clamp(290px, 50vw, 424px); */
 	}
 	
 	.statistics__cats {
@@ -819,8 +820,8 @@ body{
 
 	.statistics__image span{
 		left: 41%;
-    top: 20%;
-		line-height: clamp(10px, 3vw, 16px);
+    top: 21%;
+		line-height: clamp(9px, 2vw, 16px);
 	}
 
 	.statistics__description{
@@ -948,7 +949,7 @@ body{
 	grid-area: title;
 }
 
-.accordion-container{
+.accordion__container{
 	grid-area: accordion;
 	width: clamp(500px, 52vw, 946px);
 	font-family: Arial, Helvetica, sans-serif;
@@ -957,66 +958,6 @@ body{
 
 .question__decor{
 	width: clamp(240px, 14vw, 256px);
-}
-
-.ac{
-	background-color: var(--bg-green);
-}
-
-.ac .ac-trigger{
-	height: 72px;
-	border: 1px solid #000;
-	border-radius: 6px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	font-weight: normal;
-	vertical-align: middle;
-	padding: 0 40px 0 26px;
-	background-color: #fff;
-}
-
-.ac .ac-panel .ac-text {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	font-weight: normal;
-	padding: 24px 26px;
-	margin: 0;
-	line-height: 26px;
-}
-
-.ac-text{
-	border: 1px solid #000;
-	border-radius: 6px;
-	background-color: #fff;
-}
-
-.ac .ac-panel .ac-text{
-	margin-top: 2px;
-}
-
-.ac .ac-trigger:focus {
-	color: inherit;
-}
-
-
-.ac .ac-trigger::after {
-	content: "";
-	text-align: center;
-	width: 18px;
-	height: 10px;
-	color: #000;
-	-webkit-transform: translate(0, -50%);
-	transform: translate(0, -50%);
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	background: url("../images/icons/accordeon-arrow.svg");
-	transition: transform 0.4s;
-}
-
-.ac.is-active>.ac-header .ac-trigger::after {
-	content: "";
-	transform: rotate(-90deg);
 }
 
 @media screen and (max-width:900px) {
@@ -1033,46 +974,18 @@ body{
 		align-self: flex-start;
 	}
 
-	.accordion-container{
-		width: clamp(300px,65vw,650px);
+	.accordion__container{
+		width: clamp(300px,70vw,600px);
 		margin-bottom: 20px;
 	}
-
-	.ac .ac-trigger{
-		font-size: clamp(14px, 3vw, 20px);
-	}
-
-	.ac .ac-panel .ac-text {
-		font-size: clamp(14px, 3vw, 20px);
-	}
-
-	.question__picture{
-		align-self: flex-end;
-	}
 }
 
-@media screen and (max-width:600px) {
 
-	.accordion-container{
-		width: 	var(--container-small);
-	}
-
-	.ac .ac-trigger{
-		font-size: clamp(15px, 4vw, 19px);
-	}
-
-	.ac .ac-panel .ac-text {
-		font-size: clamp(15px, 4vw, 19px);
-		line-height: 120%;
-	}
-
-
-}
 
 /* ============ PARTNERS ==================== */
 
 .partners{
-	width: var(--container-big);
+	max-width: 1440px;
 	margin: auto;
 	padding: 60px 0 var(--container--margin-bottom);
 	background-color: #fff;
@@ -1087,9 +1000,6 @@ body{
 	overflow-x: hidden;
 }
 
-.swiper-partners{
-	width: var(--container-big);
-}
 
 .partners__swiper-slide{
 	width: auto;

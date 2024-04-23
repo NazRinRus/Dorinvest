@@ -76,6 +76,9 @@
 		row-gap: 30px;
 	}
 
+	.footer__navigation{
+		grid-area: navigation;
+	}
 
 	.footer__navigation__list{
 		margin-right: 0;
@@ -127,7 +130,7 @@
 		margin-right: 0;
 		flex-direction: row;
 		justify-content: center;
-		gap: 20px;
+		gap: clamp(10px, 2vw, 20px);
 	}
 
 	.footer__contacts{

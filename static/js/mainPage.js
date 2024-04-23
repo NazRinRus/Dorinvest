@@ -4,9 +4,6 @@ import { faq } from "./getQuestions"
 import { fullStatistics } from "./getStatistics";
 import {formatDays, formatMonth, addActiveClass} from "./functions"
 
-import Accordion from '/static/js/accordion.min.js';
-import '/static/css/accordion.min.css';
-
 
 Array.from(document.querySelectorAll(".link__photoreport")).forEach((item)=>{item.firstChild.href = `/past/?id=${currentExhibition.id}`})
 
@@ -55,6 +52,8 @@ document.querySelector(".about__description__text").innerHTML = nowExhibition.ab
 const participantsGallery = document.querySelector(".participants__gallery")
 const participantsphotos = nowExhibition.participants
 
+console.log(participantsphotos)
+
 participantsphotos.forEach((item, index)=>{
 	if(index > 8) return
 	showParticipantsPhoto(item, index)
@@ -76,8 +75,15 @@ function showParticipantsPhoto(photo, index){
 	photoContainer.classList.add("participants__gallery__item")
 	photoContainer.classList.add(`participants__gallery__item-${index + 1}`)
 
-	if(photo.avatar_id === null) photoContainer.innerHTML = `<img src="${photo.participant_foto[0].foto}">`
-	else photoContainer.innerHTML = `<img src="${photo.avatar_id}">`
+	let photoLink
+
+	if(!photo.avatar_id){
+		if(!photo.participant_foto[0]){
+			photoLink = `/static/images/reserve/reserve-photo-${index}.jpg`
+		}else photoLink = photo.participant_foto[0].foto
+	} else photoLink = photo.avatar_id
+
+	photoContainer.innerHTML = `<img src="${photoLink}">`
 	
 	participantsGallery.appendChild(photoContainer)
 }
@@ -85,12 +91,13 @@ function showParticipantsPhoto(photo, index){
 
 // PAST
 
-const exhibitions = allExhibitions
-exhibitions.shift()
+const exhibitions = allExhibitions.filter((item)=>{
+	if (item.id !== currentExhibition.id && item.date_begin < currentExhibition.date_begin) return true
+})
 const exhibitionsGallery = document.querySelector(".past__gallery")
 exhibitions.forEach((item, index)=>{
 	if(index > 5) return
-	showPastExgibitions(item, index)
+	showPastExhibitions(item, index)
 })
 
 if (exhibitions.length < 6){
@@ -104,12 +111,12 @@ if (exhibitions.length < 6){
 	}
 }
 
-function showPastExgibitions(exhibition, index){
+function showPastExhibitions(exhibition, index){
 	const exhibitionContainer = document.createElement("a")
 	exhibitionContainer.classList.add("past__gallery__item")
 	exhibitionContainer.classList.add(`past__gallery__item-${index + 1}`)
 	exhibitionContainer.href = `/past/?id=${exhibition.id}`
-	let  exhibitionPhoto
+	let exhibitionPhoto
 	if(exhibition.exhibition_foto[0] === undefined) exhibitionPhoto = `static/images/reserve/reserve-photo-${index}.jpg`
 	else exhibitionPhoto = exhibition.exhibition_foto[0].foto
 
@@ -147,7 +154,7 @@ document.querySelector(".dogs__number").innerHTML = fullStatistics.собака+
 
 // QUESTIONS
 
-const questionsContainer = document.querySelector(".accordion-container")
+const questionsContainer = document.querySelector(".accordion__container")
 const questions = faq
 
 questions.forEach((item, index)=>{
@@ -157,27 +164,41 @@ questions.forEach((item, index)=>{
 function showQuestions(question, index){
 
 	const questionContainer = document.createElement("div")
-	questionContainer.classList.add("ac")
+	//questionContainer.classList.add("ac")
 		
 	questionContainer.innerHTML = 
-	`<h2 class="ac-header">
+	`
+	<label for="chk-${index+1}" class="accordion__label">				
+	<input id="chk-${index+1}" type="checkbox"/>
+	 <div class="accordion__title__container">
+			 <h3 class="accordion__title">${question.question}</h3>
+	 </div>
+		<div class="accordion__content">
+			<p class="accordion__text">${question.answer}</p>
+		</div>
+	</label>
+	`
+
+
+
+/* 	`<h2 class="ac-header">
 		<button type="button" class="ac-trigger">${question.question}</button>
 	</h2>
 	<div class="ac-panel">
 		<p class="ac-text">${question.answer}</p>
-	</div>`
+	</div>` */
 	questionsContainer.appendChild(questionContainer) 
 
 
 }
-	let ac = document.querySelector(".accordion-container")
+/* 	let ac = document.querySelector(".accordion-container")
 
 	if(ac !== null){
 		new Accordion('.accordion-container', {
 			duration: 400,
 			showMultiple: true,
 		});
-	}
+	} */
 
 // PARTNERS
 

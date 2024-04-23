@@ -102,18 +102,49 @@ body{
 	gap: 20px;
 }
 
-.portfolio__photos {
+/* .portfolio__photos {
 	display: grid;
 	grid-template-columns: 5fr 3fr;
-	grid-template-rows: repeat(2, clamp(150px, 20vw, 300px));
+	grid-template-rows: repeat(2, clamp(150px, 35vw, 300px));
 	grid-template-areas: 
 	"photo-1 photo-2"
 	"photo-1 photo-3";
 	max-width: 657px;
-	gap: 20px;
+	gap: clamp(10px, 2vw, 20px);
 	margin-top: 60px;
 	flex: 3;
 
+} */
+
+.portfolio__photos {
+	display: flex;
+	height: clamp(350px, 60vw, 620px);
+	grid-template-rows: repeat(2, clamp(150px, 35vw, 300px));
+	grid-template-areas: 
+	"photo-1 photo-2"
+	"photo-1 photo-3";
+	max-width: 657px;
+	gap: clamp(10px, 2vw, 20px);
+	margin-top: 73px;
+	flex: 3;
+
+}
+
+.portfolio-swiper{
+	height: clamp(350px, 60vw, 620px);
+	overflow: hidden;
+}
+
+.portfolio-swiper-button-next{
+	width: 50px;
+	height: 50px;
+	position: relative;
+	background: url("/static/images/icons/report-arrow.svg") no-repeat;
+	background-size: contain;
+	margin: auto;
+	margin-top: 20px;
+	transform: rotateX(45deg);
+	display: none;
 }
 
 .photo{
@@ -128,15 +159,33 @@ body{
 	border-radius: 6px;
 }
 
+.portfolio-avatar-plug{
+	background-color: #fff;
+	padding: 50px;
+	border-radius: 6px;
+}
+
 .photo-1 {
+	width: clamp(150px, 35vw, 370px);
+	height: clamp(350px, 60vw, 620px);
 	grid-area: photo-1;
 }
 
 .photo-2 {
+	width: clamp(75px, 16vw, 200px);
+	height: clamp(150px, 35vw, 300px);
 	grid-area: photo-2;
 }
 
 .photo-3 {
+	width: clamp(75px, 16vw, 200px);
+	height: clamp(150px, 35vw, 300px);
+	grid-area: photo-3;
+}
+
+.photo-4 {
+	width: clamp(75px, 16vw, 200px);
+	height: clamp(150px, 35vw, 300px);
 	grid-area: photo-3;
 }
 
@@ -150,7 +199,7 @@ body{
 
 .portfolio__name {
 	margin-left: 100px;
-	font-size: 32px;
+	font-size: var(--title-font-size);
 	color: var(--d-green);
 	font-family: "Montserrat", sans-serif;
 }
@@ -208,7 +257,7 @@ body{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 50px;
+		gap: clamp(25px, 5vw, 50px);
 		max-width: 657px;
 		margin: auto;
 	}
@@ -216,7 +265,7 @@ body{
 	.portfolio__photos{
 		max-height: none;
 		margin-top: 0;
-
+		max-width: 800px;
 	}
 
 	.portfolio__description{
@@ -242,6 +291,36 @@ body{
     width: clamp(300px, 83vw, 460px);
     align-self: center;
 	}
+
+	.photo-1 {
+		width: clamp(150px, 55vw, 500px);
+		height: clamp(350px, 60vw, 620px);
+		grid-area: photo-1;
+	}
+	
+	.photo-2 {
+		width: clamp(75px, 26vw, 220px);
+		height: clamp(150px, 35vw, 300px);
+		grid-area: photo-2;
+	}
+	
+	.photo-3 {
+		width: clamp(75px, 26vw, 220px);
+		height: clamp(150px, 35vw, 300px);
+		grid-area: photo-3;
+	}
+	
+	.photo-4 {
+		width: clamp(75px, 26vw, 220px);
+		height: clamp(150px, 35vw, 300px);
+		grid-area: photo-3;
+	}
+
+	.portfolio-swiper-button-next{
+		width: clamp(30px, 7vw, 50px);
+		height: 30px;
+	}
+	
 }
 
 
@@ -249,8 +328,8 @@ body{
 
 
 .hystmodal__window{
-	width: 668px;
-	padding: 60px;
+	width: clamp(300px, 90vw, 668px);
+	padding: clamp(30px, 5vw, 60px);
 	border-radius: 6px;
 
 }
@@ -261,7 +340,7 @@ body{
   display: flex;
 	flex-direction: column;
 	max-width: 560px;
-	gap: 25px;
+	gap: clamp(15px, 4vw, 25px);
 }
 
 .form-group {
@@ -280,13 +359,13 @@ body{
 	z-index: 1;
 	background-color: #fff;
 	padding: 0 4px;
-	font-size: 16px;
+	font-size: clamp(10px, 4vw, 16px);
 }
 
 .form-group input{
-	height: 72px;	
+	height: clamp(45px, 6vw, 72px);	
 	border-radius: 4px;
-	font-size: 30px;
+	font-size: clamp(18px, 5vw, 30px);
 	padding: 0 20px;
 }
 
@@ -297,8 +376,8 @@ body{
 
 .form__button{
 	font-family: "Montserrat", sans-serif;
-	font-size: 32px;
-	height: 72px;
+	font-size: clamp(18px, 6vw, 32px);
+	height: clamp(45px, 6vw, 72px);	
 	margin-top: 25px;
 }
 

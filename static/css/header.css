@@ -18,11 +18,11 @@
 .navigation__list{
 	display: flex;
 	gap: clamp(24px, 3vw, 44px);
-	font-size: clamp(16px, 2.5vw, 20px);
 }
 
 .navigation__list__item{
 	transition: color 0.2s;
+	font-size: clamp(14px, 2vw, 20px);
 }
 
 .navigation__list__item:hover:not(.navigation__list__item_active){
@@ -38,7 +38,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 615px) {
 	
 	.header__container{
 		display: flex;
@@ -113,7 +113,7 @@
 		position: relative;
 		text-decoration: none;
 		color: #fff;
-		font-size: 2em;
+		font-size: clamp(20px, 2vw, 40px);
 		display: inline-block;
 		transition: color 0.2s ease-in-out;
 		letter-spacing: 1px;
