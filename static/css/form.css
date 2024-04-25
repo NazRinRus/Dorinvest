@@ -1,6 +1,6 @@
 
 .request{
-	max-width: 1440px;
+	width: 100%;
 	margin: auto;
 	background-color: #fff;
 	padding: 90px 0 var(--container--margin-bottom);

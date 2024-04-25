@@ -35,7 +35,7 @@ if(nowExhibition.bunner){
 	document.querySelector(".hero__background").src = nowExhibition.bunner
 	document.querySelector(".hero__background-span").remove()
 } else{
-	document.querySelector(".hero__background").src = "/static/images/banner.jpg"
+	document.querySelector(".hero__background").src = "/static/images/bunner-1.jpg"
 	document.querySelector(".hero__background-span").style.display = "block"
 }
 document.querySelector(".hero__info__title").innerHTML = nowExhibition.name
@@ -52,8 +52,6 @@ document.querySelector(".about__description__text").innerHTML = nowExhibition.ab
 const participantsGallery = document.querySelector(".participants__gallery")
 const participantsphotos = nowExhibition.participants
 
-console.log(participantsphotos)
-
 participantsphotos.forEach((item, index)=>{
 	if(index > 8) return
 	showParticipantsPhoto(item, index)
@@ -62,8 +60,8 @@ participantsphotos.forEach((item, index)=>{
 if (participantsphotos.length < 9){
 	for(let i = participantsphotos.length; i < 9; i++){
 		const participantsContainer = document.createElement("div")
-		participantsContainer.classList.add("past__gallery__item")
-		participantsContainer.classList.add(`past__gallery__item-${i + 1}`)
+		participantsContainer.classList.add("participants__gallery__item")
+		participantsContainer.classList.add(`participants__gallery__item-${i + 1}`)
 
 		participantsContainer.innerHTML = `<img src="/static/images/reserve/reserve-photo-${i}.jpg" alt="" loading="lazy">`
 		participantsGallery.appendChild(participantsContainer) 
@@ -106,7 +104,7 @@ if (exhibitions.length < 6){
 		exhibitionContainer.classList.add("past__gallery__item")
 		exhibitionContainer.classList.add(`past__gallery__item-${i + 1}`)
 
-		exhibitionContainer.innerHTML = `<img src="/static/images/reserve/reserve-photo-${i}.jpg" alt="" loading="lazy">`
+		exhibitionContainer.innerHTML = `<img src="/static/images/reserve/reserve-photo-${i+1}.jpg" alt="" loading="lazy">`
 		exhibitionsGallery.appendChild(exhibitionContainer) 
 	}
 }

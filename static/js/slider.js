@@ -1,11 +1,11 @@
 import Swiper from 'swiper';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Mousewheel  } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const swiper = new Swiper('.swiper-adviсe', {
-	modules: [Pagination, Navigation],
+	modules: [Pagination, Navigation, Mousewheel],
   loop: true,
   pagination: {
     el: '.swiper-pagination',
@@ -27,14 +27,11 @@ const swiperPartners = new Swiper('.swiper-partners', {
 	watchOverflow: true,
 	spaceBetween: 0,
 	freeMode: true,
-/* 	mousewheel:{
-		sensitivity: 10,
-	}, */
 });
 
 
 const swiperPortfolio = new Swiper('.portfolio-swiper', {
-	modules: [Navigation],
+	modules: [Navigation, Mousewheel],
 	navigation: {
     nextEl: '.portfolio-swiper-button-next',
 		prevEl: '.portfolio-swiper-button-prev',
@@ -45,7 +42,5 @@ const swiperPortfolio = new Swiper('.portfolio-swiper', {
 	spaceBetween: 20,
 	freeMode: true,
 	direction: 'vertical',
-/* 	mousewheel:{
-		sensitivity: 10,
-	}, */
+	mousewheel:true,
 });

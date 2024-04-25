@@ -1,5 +1,5 @@
 import { allExhibitions } from "./getAllExhibitions"
-import {formatDays, formatMonth, addActiveClass} from "./functions"
+import {formatDays, formatMonth, addActiveClass, createPagination} from "./functions"
 import { getStatistics } from "./getStatistics";
 
 if(window.location.href.includes("past")){
@@ -10,12 +10,13 @@ if(window.location.href.includes("past")){
 	})	
 
 	const id = new URLSearchParams(window.location.search).get('id');	
-
+	const exhibition = exhibitions.get(+id)
 	
 
-	showPhotos(exhibitions.get(+id))	
-	showPlug(exhibitions.get(+id))
-	showRepot(exhibitions.get(+id))
+	showPhotos(exhibition)	
+	showPlug(exhibition)
+	showRepot(exhibition)
+	//createPagination(exhibition.exhibition_foto.length, 10)
 } 
 
 function showPhotos(exhibition){
@@ -118,3 +119,4 @@ function showRepot(exhibition){
 	document.querySelector(".main").appendChild(reportArea)	
 	reportArea.appendChild(accordeon)	
 }
+

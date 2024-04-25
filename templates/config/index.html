@@ -14,7 +14,7 @@
 	<main>
 		<section class="hero">
 			<span class="hero__background-span">Забери меня<br>домой!</span>
-			<img class="hero__background" src="/static/images/banner.jpg" alt="" loading="lazy" width="1440" height="886">
+			<img class="hero__background" src="" alt="" loading="lazy" width="1440" height="886">
 			<div class="hero__container">
 				<div class="hero__top">
 					<div class="hero__info">
@@ -29,9 +29,11 @@
 					</div>
 				</div>
 				<p class="hero__place"></p>
-			</div>
-			<a href="#request" class="hero__button button"><span class="hero__button__hashtag">#</span>Найти друга</a>
+			</div>			
 		</section>
+		<div class="hero-button__container">
+			<a href="{% url 'participants' %}" class="hero__button button"><span class="hero__button__hashtag">#</span>Найти друга</a>
+		</div>
 
 		<section class="about">
 			<h2 class="about__description__title about__description__title__mobile title ">О выставке</h2>

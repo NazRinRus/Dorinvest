@@ -2,7 +2,7 @@ function formatDays(exhibition){
 	const start = +(exhibition.date_begin[8]+exhibition.date_begin[9])
 	const end = +(exhibition.date_end[8]+exhibition.date_end[9])
 
-	const result = `${start}-${end}`
+	const result = `${start}–${end}`
 	return result
 }	
 function formatMonth(dateBegin){
@@ -31,5 +31,24 @@ function addActiveClass(linkContainerClassName){
 	}
 	document.querySelector(linkContainerClassName).classList.add("navigation__list__item_active")
 }
+function createPagination(allQuantity, needQuantity){
+	const pagesQuantity = Math.ceil(allQuantity / needQuantity)
+	if(pagesQuantity === 1) return
 
-export {formatDays, formatMonth, addActiveClass}
+	const pagination = document.querySelector(".pagination")
+
+	//pagination.innerHTML = ``
+	//parentNode.addChild(pagination)
+
+	
+	for(let i = 0; i < pagesQuantity; i++){
+		console.log(i)
+		const paginationItem = document.createElement("button")
+		paginationItem.classList.add("pagination__item")
+		paginationItem.innerHTML = `${i+1}`
+		
+		pagination.appendChild(paginationItem)
+	}
+}
+
+export {formatDays, formatMonth, addActiveClass, createPagination}

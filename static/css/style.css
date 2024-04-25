@@ -25,6 +25,9 @@ body{
 	font-size: 20px;
 	background-color: var(--bg-green);
 	-webkit-font-smoothing: antialiased;
+	height: 100dvh;
+	display: flex;
+  flex-direction: column;
 }
 
 .button:not(.form__button){
@@ -105,32 +108,34 @@ body{
 
 .hero{
 	position: relative;
-	max-width: 1440px;
+	max-width: 2560px;
 	margin: auto;
 	color: #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-bottom: clamp(50px, 8vw, 70px);
 	font-family: "Montserrat", sans-serif;
 }
 
 .hero__background-span{
 	color: var(--d-green);
 	font-family: nyashasans;
-	font-size: clamp(8px, 1.5vw, 20px);
+	font-size: clamp(8px, 1.5vw, 36px);
 	position: absolute;
 	text-align: center;
-	top: clamp(0%, 24vw, 36%);
+	top: clamp(0%, 24vw, 38%);
 	left: clamp(0%, 51.5vw, 45%);
 	transform: rotate(337deg);
 	display: none;
+	z-index: 0;
 }
 
 .hero__background{
 	z-index: -1;
 	width: 100%;
 	height: 100%;
+	background-color: var(--d-green);
+	transform: translateY(0);
 }
 
 .hero__container{
@@ -194,18 +199,22 @@ body{
 
 .hero__place{
 	position: absolute;
-	bottom: 16%;
+	bottom: 10%;
 	color: var(--d-green);
 	font-size: clamp(14px, 2vw, 32px);
 	line-height: clamp(17px, 3vw, 44px);
 	max-width: clamp(280px, 42vw, 600px);
 }
 
+.hero-button__container{
+	width: clamp(300px, 80vw, 2000px);
+	margin: auto;
+	display: flex;
+	justify-content: end;
+	margin-bottom: clamp(50px, 8vw, 70px);
+}
+
 .hero__button{
-	align-self: end;
-	margin-right: clamp(0px, 9vw, 183px);
-	width: clamp(250px, 33vw, 428px);
-	height: clamp(36px, 5vw, 72px);
 	transform: translateY(-50%);
 	display: flex;
   justify-content: center;
@@ -214,12 +223,85 @@ body{
 	box-sizing: border-box;
 	z-index: 1;
 	letter-spacing: 3px;
+	font-size: clamp(18px, 2.5vw, 36px);
+	width: clamp(239px, 34vw, 400px);
+	height: clamp(50px, 6vw, 72px);	
+	margin-top: clamp(0);
+/* 	margin-left: clamp(500px, 57vw, 1627px);
+	margin-right: auto;
+	 */
 }
 
 .hero__button__hashtag{
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 }
+
+@media screen and (min-width: 1500px) {
+	.hero__background-span{
+		color: var(--d-green);
+		font-family: nyashasans;
+		font-size: clamp(8px, 1.5vw, 36px);
+		position: absolute;
+		text-align: center;
+		top: clamp(0%, 24vw, 29%);
+		left: clamp(0%, 51.5vw, 45%);
+		transform: rotate(337deg);
+		display: none;
+		z-index: 0;
+	}
+	
+	.hero__background{
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background-color: var(--d-green);
+		transform: translateY(clamp(-10%, -6vw, -1%));
+	}
+	
+	.hero__container{
+		position: absolute;
+		width: var(--container-small);
+		margin: auto;
+		padding-top: clamp(30px, 5vw, 70px);
+		height: 87%;	
+	}
+
+	.hero-button__container{
+		width: 1000px;
+		margin: auto;
+		display: flex;
+		justify-content: end;
+	}
+
+	.hero__button{
+		/* transform: translateY(-50%); */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 5px;
+		box-sizing: border-box;
+		z-index: 1;
+		letter-spacing: 3px;
+		font-size: clamp(18px, 2.5vw, 36px);
+		width: clamp(239px, 34vw, 400px);
+		height: clamp(50px, 6vw, 72px);	
+		margin-top: clamp(-160px, -6vw, 36px);
+	/* 	margin-left: clamp(500px, 57vw, 1627px);
+		margin-right: auto;
+		 */
+	}
+
+	.hero__place{
+		position: absolute;
+		bottom: 6%;
+		color: var(--d-green);
+		font-size: clamp(14px, 2vw, 32px);
+		line-height: clamp(17px, 3vw, 44px);
+		max-width: clamp(280px, 42vw, 600px);
+	}
+}
+
 
 @media screen and (max-width: 600px) {
 
@@ -234,7 +316,7 @@ body{
 	.hero__background-span {
     font-size: clamp(3px, 1.5vw, 20px);
     left: clamp(0%, 45vw, 45%);
-    top: clamp(15%, 24vw, 32%);
+    top: clamp(15%, 24vw, 38%);
 	}
 
 	.hero__info__title{
@@ -268,7 +350,7 @@ body{
 	.hero__place{
 		font-size: clamp(10px, 3vw, 14px);
 		line-height: clamp(10px, 4vw, 17px);
-		bottom: 23%
+		bottom: 7%
 	}
 
 	.hero__button{
@@ -285,7 +367,7 @@ body{
 
 @media screen and (max-width: 400px) {
 	.hero__place{
-		bottom: 25%
+		bottom: 3%
 	}
 }
 /*  ================ ABOUT ===================== */
@@ -981,11 +1063,10 @@ body{
 }
 
 
-
 /* ============ PARTNERS ==================== */
 
 .partners{
-	max-width: 1440px;
+	width: 100%;
 	margin: auto;
 	padding: 60px 0 var(--container--margin-bottom);
 	background-color: #fff;
@@ -1000,6 +1081,9 @@ body{
 	overflow-x: hidden;
 }
 
+.swiper-partners{
+	max-width: 1500px;
+}
 
 .partners__swiper-slide{
 	width: auto;
