@@ -69,9 +69,10 @@ ___
 5 | Дмитриева Алина Анатольевна   | UX/UI дизайнер               | @LinneAya            |                                   |
 6 | Мусаткина Анжела Вячеславовна | Графический дизайнер         | @avantello           | https://www.behance.net/avantello |
 7 | Сергеева Оксана Юрьевна       | Графический дизайнер         | @Obl30               | https://www.behance.net/9510434b  |
-___
+
 </details>
 
+___
 <details>
 <summary>
 
@@ -99,9 +100,10 @@ ___
 ***Frontend разработка выполнена на JavaScript.***
 
 ***Взаимодействие Backend и Frontend осуществляется путём запроса API (использовали rest_framework) через JavaScript.***
-___
+
 </details>
 
+___
 ### API
 ***Метод:***
 <details>
