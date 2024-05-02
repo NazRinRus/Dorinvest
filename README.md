@@ -1,7 +1,5 @@
-<div style="display: flex; align-items: center;">
-    <img src="static/images/icons/dorinvest_logo.ico" alt="Логотип Доринвест">
-    <h1>Многостраничный сайт в рамках Мегахакатона по лендингам для ГБУ «Доринвест»</h1>
-</div>
+# Многостраничный сайт в рамках Мегахакатона по лендингам для ГБУ «Доринвест»
+![not images!!!](static/images/icons/dorinvest_logo.ico)
 ## Техническое задание
 <details>
 <summary>
