@@ -62,15 +62,15 @@ ___
 ## Команда «Крёстный кОтец»
 </summary>
 
-№ | ФИО                           | Должность                    | Никнейм в телеграмме | Ссылка на проекты                 |
---|-------------------------------|------------------------------|----------------------|-----------------------------------
-1 | Зайцев Антон Александрович    | Тимлид и Backend разработчик | @BlackMarvel         | https://github.com/Hashtagich     |
-2 | Назаров Ринат                 | Backend разработчик          | @NazRinRus           | https://github.com/NazRinRus      |
-3 | Зайдигалов Артур              | Frontend разработчик         | @ArthZai             | https://github.com/Zaidigalov     |
-4 | Наталия	                      | UX/UI дизайнер               | @goncearova_natalia  |                                   |
-5 | Дмитриева Алина Анатольевна   | UX/UI дизайнер               | @LinneAya            |                                   |
-6 | Мусаткина Анжела Вячеславовна | Графический дизайнер         | @avantello           | https://www.behance.net/avantello |
-7 | Сергеева Оксана Юрьевна       | Графический дизайнер         | @Obl30               | https://www.behance.net/9510434b  |
+№ | ФИО                           | Должность                    | Никнейм в телеграмме | Ссылка на проекты                          |
+--|-------------------------------|------------------------------|----------------------|--------------------------------------------
+1 | Зайцев Антон Александрович    | Тимлид и Backend разработчик | @BlackMarvel         | https://github.com/Hashtagich              |
+2 | Назаров Ринат Русланович      | Backend разработчик          | @NazRinRus           | https://github.com/NazRinRus               |
+3 | Зайдигалов Артур Ахмедович    | Frontend разработчик         | @ArthZai             | https://github.com/Zaidigalov              |
+4 | Гончарова Наталья Игоревна    | UX/UI дизайнер               | @goncearova_natalia  | https://www.behance.net/nataliagoncearova  |
+5 | Дмитриева Алина Анатольевна   | UX/UI дизайнер               | @LinneAya            | https://www.behance.net/linne_aya          |
+6 | Мусаткина Анжела Вячеславовна | Графический дизайнер         | @avantello           | https://www.behance.net/avantello          |
+7 | Сергеева Оксана Юрьевна       | Графический дизайнер         | @Obl30               | https://www.behance.net/9510434b           |
 
 </details>
 
