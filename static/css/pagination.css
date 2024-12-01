@@ -1,0 +1,15 @@
+.pagination{
+	width: 200px;
+	margin: auto;
+	display: flex;
+	gap: 17px;
+	margin-bottom: 40px;
+}
+
+.pagination__item{
+	border: none;
+	width: 34px;
+	height: 34px;
+	background-color: #d4d4d4;
+	border-radius: 50%;
+}

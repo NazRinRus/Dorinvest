@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Фото прошлой выставки
+{% endblock title %}
+
+{% block style %} 
+<link rel="stylesheet" href="/static/css/reset.css"/>
+<link rel="stylesheet" href="/static/css/past.css"/>
+{% endblock style %}
+
+{% block content %}
+
+	<main class="main">
+		<div class="main__navbar">
+			<a href="{% url 'exhibitions' %}">Прошлые выставки</a>
+		</div>
+
+		<section class="photos">
+			<h2 class="photos__date title"></h2>
+			<p class="photos__place title"></p>
+			<div class="photos__container"></div>
+		</section>
+
+		<div class="pagination"></div>
+
+		<section class="exhibition-statistics">
+		</section>
+
+
+	</main>
+
+{% endblock content %}

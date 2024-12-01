@@ -1,0 +1,145 @@
+.footer{
+	width: 100%;
+	height: 239px;
+	background-color: var(--d-green);
+	margin: auto auto 0;
+	color: #fff;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.footer__container{
+	display: flex;
+	width: clamp(300px, 83vw, 1140px);
+	margin: auto;
+}
+
+.footer__networks{
+	flex: 1 1 auto;
+}
+
+.networks__icons{
+	display: flex;
+	gap: clamp(20px, 3.5vw, 40px);
+}
+
+.networks__title{
+	font-family: "arcocyrillic";
+	font-size: clamp(20px, 3.5vw, 40px);
+	margin-bottom: clamp(15px, 2.5vw, 28px);
+	letter-spacing: 3px;
+}
+
+.networks__title__hashtag{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.footer__navigation__list{
+	list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-right: 85px;
+	font-size: clamp(12px, 2vw, 20px);
+}
+
+.footer__contacts{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	white-space: nowrap;
+}
+
+.contacts__item img{
+	margin-right: 20px;
+}
+
+.footer__contacts a{
+	justify-self: start;
+	font-size: clamp(12px, 2vw, 20px);
+}
+
+
+
+@media screen and (max-width:1250px) {
+	.footer__container{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 110px 20px;
+		grid-template-areas:
+		"networks contacts"
+		"navigation navigation";
+		row-gap: 30px;
+	}
+
+	.footer__navigation{
+		grid-area: navigation;
+	}
+
+	.footer__navigation__list{
+		margin-right: 0;
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: 20px;
+	}
+
+
+	.footer__contacts{
+		grid-area: contacts;
+		justify-self: end;	
+	}
+}
+
+@media screen and (max-width:750px) {
+
+	.footer{
+		height: auto;
+		padding: 50px 0;
+	}
+
+	.footer__container{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 20px;
+		grid-template-areas:
+		"networks"
+		"contacts"
+		"navigation";
+		row-gap: 30px;
+		justify-items: center;
+	}
+
+	.networks__title{
+		font-size: clamp(25px, 5vw, 40px);
+		margin-bottom: clamp(15px, 2.5vw, 28px);
+		letter-spacing: 3px;
+	}
+	
+
+	.networks__icons{
+		display: flex;
+		gap: clamp(20px, 3.5vw, 40px);
+		justify-content: center;
+	}
+
+	.footer__navigation__list{
+		margin-right: 0;
+		flex-direction: row;
+		justify-content: center;
+		gap: clamp(10px, 2vw, 20px);
+	}
+
+	.footer__contacts{
+		grid-area: contacts;
+		justify-self: center;	
+	}
+
+	.contacts__item img{
+		margin-right: 15px;
+		width: clamp(15px, 3vw, 20px);
+	}
+}

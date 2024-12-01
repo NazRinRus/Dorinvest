@@ -1,0 +1,13 @@
+:root {
+	--bg-green:	#edf5f1;
+  --l-green: #79BD9A;
+  --d-green: #207B44;
+	--card: #6E8877;
+
+	--container-big: clamp(300px, 95vw, 1440px);
+	--container-small: clamp(300px, 83vw, 1140px);
+	--container--margin-bottom: clamp(5px, 15vw, 150px);
+
+	--title-font-size: clamp(24px, 6vw, 48px);
+	--title-margin-bottom: clamp(28px, 8vw, 80px);
+}

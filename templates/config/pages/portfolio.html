@@ -1,0 +1,111 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Карточка участника
+{% endblock title %}
+
+{% block style %} 
+<link rel="stylesheet" href="/static/css/reset.css"/>
+<link rel="stylesheet" href="/static/css/portfolio.css"/>
+{% endblock style %}
+
+{% block content %}
+
+	<main class="main">
+		<div class="main__navbar">
+			<a href="{% url 'participants' %}">Участники</a>
+		</div>
+
+		<section	class="main__portfolio">
+
+			<div class="portfolio__container">
+<!-- 				<div class="portfolio__photos">
+					<div class="photo photo-1">
+					</div>
+					<div class="photo photo-2">
+					</div>
+					<div class="photo photo-3">
+					</div>
+				</div> -->
+
+				<div class="portfolio__photos">
+					<div class="photo photo-1">
+					</div>
+					<div class="portfolio-swiper__container">
+						<div class="portfolio-swiper-button-prev swiper-nav-button"></div>
+						<div class="swiper portfolio-swiper">
+							<div class="swiper-wrapper portfolio-swiper-wrapper">
+<!-- 								<div class="swiper-slide">
+									<div class="photo photo-2"></div>
+								</div>	
+								<div class="swiper-slide">
+									<div class="photo photo-3"></div>
+								</div> -->							
+							</div>
+						</div>
+						<div class="portfolio-swiper-button-next swiper-nav-button"></div>
+					</div>
+				</div>
+
+				<div class="portfolio__description">
+					<h1 class="portfolio__name"></h1>
+					<div class="description__breed description__item">
+						<p class="portfolio__description__title">Порода</p>
+						<p class="portfolio__description__text portfolio__description__breed"></p>
+					</div>
+
+					<div class="description__color description__item">
+						<p class="portfolio__description__title">Цвет</p>
+						<p class="portfolio__description__text portfolio__description__color"></p>
+					</div>
+
+					<div class="description__age description__item">
+						<p class="portfolio__description__title">Возраст</p>
+						<p class="portfolio__description__text portfolio__description__age"></p>
+					</div>
+
+					<div class="description__sex description__item">
+						<p class="portfolio__description__title">Пол</p>
+						<p class="portfolio__description__text portfolio__description__sex"></p>
+					</div>
+
+					<div class="description__other description__item">
+						<p class="portfolio__description__title">Описание</p>
+						<p class="portfolio__description__text portfolio__description__other"></p>
+					</div>
+					
+					<button class="portfolio__button button" data-hystmodal="#myModal">Забрать питомца</button>
+				</div>
+			</div>
+		</section>
+
+		<div class="hystmodal" id="myModal" aria-hidden="true">
+			<div class="hystmodal__wrap">
+					<div class="hystmodal__window" role="dialog" aria-modal="true">
+							<form action="{% url 'api:feedback'%}" method="post" class="hystmodal__form">
+								<div class="form-group">
+									<label for="name">ФИО</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								<div class="form-group">
+									<label for="phone">Телефон</label>
+									<input type="tel" id="phone" name="phone" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Почта</label>
+									<input type="email" id="email" name="email" required>
+								</div>
+								<div class="form-group form-group_auto-fill">
+									<label for="participant">Кого бы вы хотели забрать</label>
+									<input type="text" id="participant" name="participant" required value="">
+								</div>
+								<button type="submit" class="form__button button">Отправить заявку</button>
+							</form>
+					</div>
+			</div>
+		</div>
+	</main>
+
+		
+{% endblock content %}

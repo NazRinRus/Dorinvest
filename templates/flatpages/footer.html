@@ -1,0 +1,46 @@
+
+{% load static %}
+    <!--Footer-->
+	<footer class="footer">
+		<div class="footer__container">
+			<div class="footer__networks">
+				<h2 class="networks__title"><span class="networks__title__hashtag">#</span>Найти друга</h2>
+				<div class="networks__icons">
+					<a href="https://dorinvest.ru/"  target="_blank">
+						<img src="{% static 'images/icons/dorinvest.svg' %}" alt="Dorinvest">
+					</a>
+					<a href="https://t.me/dorinvest"  target="_blank">
+						<img src="{% static 'images/icons/telegram.svg' %}" alt="Dorinvest">
+					</a>
+					<a href="https://ok.ru/group/68842575364134"  target="_blank">
+						<img src="{% static 'images/icons/ok.svg' %}" alt="Dorinvest">
+					</a>
+					<a href="https://vk.com/dorinvest"  target="_blank">
+						<img src="{% static 'images/icons/vk.svg' %}" alt="Dorinvest">
+					</a>
+				</div>
+			</div>
+			<nav class="footer__navigation">
+				<ul class="footer__navigation__list">
+					<li class="footer__navigation__list__item"><a href="{%url 'home'%}" class="footer__navigation__link">О выставке</a></li>
+					<li class="footer__navigation__list__item"><a href="{%url 'participants'%}" class="footer__navigation__link">Участники</a></li>
+					<li class="footer__navigation__list__item link__photoreport"><a href="{%url 'past'%}" class="footer__navigation__link">Фотоотчёт</a></li>
+					<li class="footer__navigation__list__item"><a href="{%url 'exhibitions'%}" class="footer__navigation__link">Все выставки</a></li>
+				</ul>
+			</nav>
+			<div class="footer__contacts">
+				<div class="contacts__item contacts__mail">
+					<img src="{% static 'images/icons/mail.svg' %}" alt="">
+					<a href="mailto:https://gbudorinvest@dom.mos.ru" target="_blank">gbudorinvest@dom.mos.ru</a>
+				</div>
+				<div class="contacts__item contacts__phone">
+					<img src="{% static 'images/icons/phone.svg' %}" alt="">
+					<a href="tel:+74992500630" target="_blank">8 (499) 250-06-30</a>
+				</div>
+				<div class="contacts__item contacts__adress">
+					<img src="{% static 'images/icons/map.svg' %}" alt="">
+					<a href="https://yandex.ru/maps/?text=г. Москва, ул. 2-я Тверская-Ямская, д.2" target="_blank">г. Москва, ул. 2-я Тверская-Ямская, д.2</a>
+				</div>
+			</div>
+		</div>
+	</footer>

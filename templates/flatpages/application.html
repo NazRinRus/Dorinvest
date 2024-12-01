@@ -1,0 +1,32 @@
+<section class="request" id="request">
+
+    <div class="request__container">
+        <h2 class="request__title title">Оставить заявку</h2>
+
+        <form action="{% url 'api:feedback'%}" method="post" class="request__form">
+            <div class="form-group">
+                <label for="name">ФИО</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="participant">Кого бы вы хотели забрать</label>
+                <input type="text" id="participant" name="participant" required>
+            </div>
+            <button type="submit" class="form__button button">#Найти друга</button>
+        </form>
+
+        <p class="request__description">
+            Если вы живете в другом городе или не можете прийти на выставку, но уже выбрали друга, то смело заполняйте данные и наш специалист свяжется с вами!
+        </p>
+
+        <img class="request__decor" src="/static/images/form-decor.png" alt="">
+    </div>
+</section>

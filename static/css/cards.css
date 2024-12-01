@@ -1,0 +1,225 @@
+@import url("/static/css/variables.css");
+@import url("/static/css/header.css");
+@import url("/static/css/form.css");
+@import url("/static/css/footer.css");
+@import url("/static/css/scrollToTopButton.css");
+
+@font-face {
+	font-family: "arcocyrillic";
+	src: url("/static/fonts/arcocyrillic.woff") format('woff');
+}
+
+html{
+	scroll-behavior:smooth;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	background-color: var(--bg-green);	
+	height: 100dvh;
+	display: flex;
+  flex-direction: column;
+}
+
+.button:not(.form__button){
+	font-family: arcocyrillic;
+	font-size: clamp(18px, 2.5vw, 36px);
+}
+
+.button{
+	background-color: var(--l-green);
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.05),0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	transition: background-color 0.2s;
+}
+
+.button:active{
+	scale: 0.995;
+}
+
+
+@media(hover:hover){
+	.button:hover{
+		background-color: var(--d-green);
+	}
+}
+
+.title{
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-size: var(--title-font-size);
+	margin-bottom: var(--title-margin-bottom);
+}
+
+/* =============== MAIN ======================== */
+
+.main{
+	padding-top: 20px;
+	width: 100%;
+}
+
+.main__navbar{
+	color: #6A6A6A;
+	font-size: 16px;
+	width: var(--container-small);
+	margin: auto;
+	margin-bottom: 40px;
+	display: flex;
+	gap: 18px;
+}
+
+.main__navbar a{
+	position: relative;
+	padding-left: 25px;
+}
+
+.main__navbar a::before{
+	content: "";
+	display: block;
+	width: 12px;
+	height: 16px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: url("/static/images/icons/nav_arr.svg") no-repeat;
+}
+
+
+
+/* =============== CARDS ======================== */
+
+.cards{
+	width: var(--container-small);
+	margin: auto;
+	margin-bottom: var(--title-margin-bottom);
+}
+
+.cards__container{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	gap: 8px;
+}
+
+.card{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 566px;
+	min-width: 350px;
+	height: clamp(180px, 20vw, 220px);
+	border-radius: 6px;
+	overflow: hidden;
+	position: relative;
+}
+
+.card__description{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	color: #fff;
+	gap: 11px;
+	background-color: var(--card);
+	position: relative;
+	text-align: start;
+	padding-left: 10%;
+	max-height: 220px;
+}
+
+.card:nth-of-type(4n+1) .card__description,.card:nth-child(4n+4) .card__description{	
+		background-color: var(--l-green);	
+}
+
+.card::after{
+	content: "";
+	position: absolute;
+	background: url("/static/images/icons/card_triangle.svg") no-repeat;
+	height: 27px;
+	width: 15px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-10%, -20%);
+}
+
+.card:nth-of-type(4n+1)::after,.card:nth-child(4n+4)::after{	
+	background: url("/static/images/icons/card_triangle_bright.svg") no-repeat;
+}
+
+
+.description__title{
+	font-size: clamp(22px, 2.5vw, 28px);
+	margin-bottom: 0;
+}
+
+.description__text{
+	font-size: clamp(12px, 2.3vw, 16px);
+}
+
+.description__place{
+	font-size: clamp(18px, 2.1vw, 20px);;
+}
+
+.card__image {
+	overflow: hidden;
+}
+
+.card__image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media screen and (max-width:853px){
+	.cards__container{
+		grid-template-columns: 1fr;
+		gap: clamp(8px, 2.5vw, 16px);
+	}
+
+	.card{
+		max-width: none;
+		min-width: 300px;
+		height: clamp(150px, 26vw, 220px);		
+	}
+
+	.card__description{
+		gap: clamp(5px, 1.3vw, 11px);
+		background-color: var(--card);
+	}
+
+	.description__title{
+		font-size: clamp(17px, 4vw, 25px);
+		margin-bottom: 0;
+	}
+	
+	.description__text{
+		font-size: clamp(12px, 2.3vw, 16px);
+	}
+	
+	.description__place{
+		font-size: clamp(16px, 4vw, 30px);;
+	}
+
+	.card:nth-of-type(4n+1) .card__description,.card:nth-child(4n+4) .card__description{	
+		background-color: var(--card);	
+	}
+
+	.card:nth-of-type(4n+1)::after,.card:nth-child(4n+4)::after{	
+		background: url("/static/images/icons/card_triangle.svg") no-repeat;
+	}
+
+	.card:nth-of-type(2n+1) .card__description{	
+		background-color: var(--l-green);	
+	}
+	.card:nth-of-type(2n+1)::after{	
+		background: url("/static/images/icons/card_triangle_bright.svg") no-repeat;
+	}
+		
+}
+
+/* =================== REQUEST ===================*/
+.request{
+	margin-bottom: 0;
+}

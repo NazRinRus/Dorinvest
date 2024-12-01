@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+  <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %} {% endblock title %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+		{% block style %} {% endblock style %}
+
+    <link rel="icon" href="/static/images/icons/dorinvest_logo.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+  <!-- header-->
+	<header class="header">
+		<div class="header__container">
+			<a href="{% url 'home' %}"><img class="header__logo" src="/static/images/icons/logo.svg" alt="logo"></a>
+			<nav class="header__navigation header__navigation_desktop">
+				<ul class="navigation__list">
+					<li class="navigation__list__item link__home"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+					<li class="navigation__list__item link__participants"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+					<li class="navigation__list__item link__photoreport"><a href="{% url 'past' %}" class="navigation__link ">Фотоотчёт</a></li>
+					<li class="navigation__list__item link__exhibitions"><a href="{%url 'exhibitions'%}" class="navigation__link">Все выставки</a></li>
+				</ul>
+			</nav>
+			
+			<div class="header__navigation_mobile">
+				<input id="toggle" type="checkbox"></input>
+
+				<label for="toggle" class="hamburger">
+					<div class="top-bun"></div>
+					<div class="meat"></div>
+					<div class="bottom-bun"></div>
+				</label>
+
+				<div class="navigation__container">
+					<nav class="navigation__content">
+						<ul class="navigation__list">
+							<li class="navigation__list__item link__home"><a href="{% url 'home' %}" class="navigation__link">О выставке</a></li>
+							<li class="navigation__list__item link__participants"><a href="{% url 'participants' %}" class="navigation__link">Участники</a></li>
+							<li class="navigation__list__item link__photoreport"><a href="{% url 'past' %}" class="navigation__link">Фотоотчёт</a></li>
+							<li class="navigation__list__item link__exhibitions"><a href="{%url 'exhibitions'%}" class="navigation__link">Все выставки</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</div>
+	</header>
+  <!-- Page content-->
+  {% block content %}
+
+  {% endblock content %}
+	<button class="scroll-to-top" title="Go to top"></button>
+  {% include 'flatpages/footer.html' %}
+		
+    <script  src="{% static 'dist/main.js' %}"></script>
+  </body>
+</html>

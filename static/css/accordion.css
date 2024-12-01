@@ -1,0 +1,106 @@
+
+.accordion__title {
+  margin: 0;
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.2;
+}
+
+.accordion__container {
+  max-width: 40em;
+  position: relative;
+}
+
+.ccordion__label {
+  display: block;
+  overflow: hidden;
+}
+
+.accordion__title__container {
+  padding: 1em 3em;
+  position: relative;
+  /* z-index: 599; */
+  background: #fbfbfb;
+  border-bottom: 1px solid #eee;
+	transition:all .3s linear;
+	border-radius: 6px;
+}
+
+@media screen and (hover:hover){
+	.accordion__title__container:hover{
+		cursor: pointer;
+		background: var(--l-green);
+	}
+}
+
+.accordion__content {
+  position: relative;
+  padding: 0;
+  max-height: 0px;
+	transition:max-height .3s linear;
+}
+
+.accordion__text {
+	position: relative;
+	padding: 1.2em 3em;
+	margin: 0;
+	transform: scale(0);
+	opacity: 0;
+	transition: all .3s ease;
+	background-color: #ffffff;
+	border-radius: 6px;
+	font-size: clamp(12px, 2vw, 18px);
+	max-height: 250px;
+	overflow: hidden;
+	overflow-y: scroll;
+	box-sizing: border-box;
+	line-height: 130%;
+}
+
+.accordion__text::-webkit-scrollbar {
+  width: 4px; /* Ширина всего элемента навигации */
+}
+
+.accordion__text::-webkit-scrollbar-track {
+  background: var(--bg-green); /* Цвет дорожки */
+}
+
+.accordion__text::-webkit-scrollbar-thumb {
+  background-color: var(--l-green); /* Цвет бегунка */
+  border-radius: 20px; 
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .accordion__title__container {
+  background: var(--l-green);
+}
+
+input[type="checkbox"]:checked + .accordion__title__container + .accordion__content {
+  max-height: 250px;
+}
+
+input[type="checkbox"]:checked + .accordion__title__container + .accordion__content .accordion__text {
+	transform: scale(1);
+  opacity: 1;
+}
+
+@media screen and (max-width:900px){
+	.accordion__title__container {
+		padding: 1em 3em;
+		position: relative;
+		z-index: 599;
+		background: var(--bg-green);
+		border-bottom: 2px solid #eee;
+		transition:all .3s linear;
+		border-radius: 6px;
+	}
+	
+}
+
+@media screen and (max-width:600px) {
+	.accordion__container{
+		width: 	var(--container-small);
+	}
+}

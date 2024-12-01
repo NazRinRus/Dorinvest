@@ -1,0 +1,168 @@
+{% extends 'flatpages/default.html' %}
+{% load static %}
+
+{% block title %}
+Выставка
+{% endblock title %}
+
+{% block style %} 
+<link rel="stylesheet" href="/static/dist/main.css"/>
+{% endblock style %}
+
+{% block content %}
+
+	<main>
+		<section class="hero">
+			<span class="hero__background-span">Забери меня<br>домой!</span>
+			<img class="hero__background" src="" alt="" loading="lazy" width="1440" height="886">
+			<div class="hero__container">
+				<div class="hero__top">
+					<div class="hero__info">
+						<h1 class="hero__info__title"></h1>
+						<p class="hero__info__description"></p>
+					</div>
+					<div class="hero__date">
+						<div class="hero__date__container">
+							<div><span class="hero__date__days"></span> <span class="hero__date__month"></span></div>
+							<p class="hero__date__time"></p>
+						</div>
+					</div>
+				</div>
+				<p class="hero__place"></p>
+			</div>			
+		</section>
+		<div class="hero-button__container">
+			<a href="{% url 'participants' %}" class="hero__button button"><span class="hero__button__hashtag">#</span>Найти друга</a>
+		</div>
+
+		<section class="about">
+			<h2 class="about__description__title about__description__title__mobile title ">О выставке</h2>
+			<div class="about__image">
+				<img src="/static/images/about-img.jpg" alt="" loading="lazy" width="919" height="574">
+				<span>У тебя такие<br>нежные ручки!</span>
+			</div>
+			<div class="about__description">
+				<h2 class="about__description__title about__description__title__desktop title ">О выставке</h2>
+				<p class="about__description__text">При поддержке ГБУ «Доринвест» мы рады пригласить вас на выставку животных,  которая проводится с целью пристройства наших пушистых друзей в заботливые дома.<br><br>Мы гордимся нашими приютами,где животным предоставляются комфортные условия, проходят ветеринарный уход и получают все необходимые прививки и процедуры. </p>
+			</div>
+		</section>
+
+		<section class="participants">
+			<h2 class="participants__title title">Участники</h2>
+			<div class="participants__gallery">
+
+				<a class="participants__button card__button" href="{% url 'participants' %}">#Посмотреть всех участников</a>
+			</div>
+		</section>
+
+		<section class="past">
+			<h2 class="past__title title">Прошлые выставки</h2>
+			<div class="past__gallery">
+				<a class="past__button card__button" href="{% url 'exhibitions' %}" >#Все выставки</a>
+			</div>
+		</section>
+
+		<section class="statistics">
+			<div class="statistics__description">
+				<h2 class="statistics__description__title">Работниками приютов отдано<br>в добрые руки</h2>
+				<div class="statistics__cats">
+					<span class="cats__title">кошки:</span>
+					<span class="cats__number"></span>
+				</div>
+				<div class="statistics__dogs">
+					<span class="dogs__title">собаки:</span>
+					<span class="dogs__number"></span>
+				</div>
+			</div>
+			<div class="statistics__image">
+				<img src="/static/images/stat-img.jpg" alt="" loading="lazy" width="919" height="574">
+				<span>Как я об этом<br>мечтал!</span>
+			</div>
+
+		</section>
+
+		{% include 'flatpages/application.html' %}
+
+		<section class="adviсe">
+			<h2 class="adviсe__title title">Полезная информация</h2>
+			<div class="swiper__container">
+				<div class="swiper-button-prev swiper-nav-button"></div>
+				<div class="swiper swiper-adviсe">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=47" target="_blank">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Виды наполнителей для туалетов домашних питомцев</div>
+									<img src="/static/images/advice/img-1.jpg" alt="" loading="lazy">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=45&sphrase_id=5018" target="_blank">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Прививки собакам и кошкам</div>
+									<img src="/static/images/advice/img-2.jpg" alt="">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=44" target="_blank">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Как правильно организовать кормление кошки</div>
+									<img src="/static/images/advice/img-3.jpg" alt="">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="https://www.pan-vet.ru/stati-o-zhivotnykh/detail.php?ID=39" target="_blank">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Дрессировка собаки</div>
+									<img src="/static/images/advice/img-4.jpg" alt="">
+								</div>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="https://www.pan-vet.ru/" target="_blank">
+								<div class="slide__content">
+									<div class="slide__content__background"></div>
+									<div class="slide__content__text">Ветеринарная клиника</div>
+									<img src="/static/images/advice/img-5.jpg" alt="">
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-next swiper-nav-button"></div>
+			</div>
+		</section>
+
+		<section class="question">
+			<h2 class="question__title title">Часто задаваемые вопросы</h2>
+
+			<div class="accordion__container"></div>
+			<picture class="question__picture">
+				<source media="(min-width: 901px)" srcset="/static/images/icons/accordeon-decor.svg" class="question__decor">
+				<source media="(max-width: 901px)" srcset="/static/images/icons/accordeon-decor-mobile.svg" class="question__decor">
+				<img class="question__decor" src="/static/images/icons/accordeon-decor.svg" alt="">
+			</picture>
+
+		</section>
+
+		<section class="partners">
+				<div class="partners__title__container">
+					<h2 class="partners__title title">Партнеры выставки</h2>
+				</div>
+				<div class="partners__swiper__container">
+					<div class="swiper swiper-partners">
+						<div class="swiper-wrapper partners__swiper-wrapper"></div>
+					</div>
+			</div>
+		</section>
+	</main>
+	
+{% endblock content %}
